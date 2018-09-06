@@ -1,0 +1,30 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+  <a class="navbar-brand" href="#">
+      <img src="bird.jpg" alt="Logo" style="width:40px;">
+    Brand
+  </a>
+
+  <button class="navbar-toggler" type="button"
+          (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse"
+       [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Item 1</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Item 2</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    </ul>
+  </div>
+</nav> 
