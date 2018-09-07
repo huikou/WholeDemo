@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 
   constructor() { }
-  navbarOpen = false;
+    navbarOpen = false;
   
     toggleNavbar() {
       this.navbarOpen = !this.navbarOpen;
     }
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
