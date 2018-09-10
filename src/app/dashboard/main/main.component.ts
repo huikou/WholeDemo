@@ -3,6 +3,7 @@ import {
   NgbModal,  
   ModalDismissReasons  
 } from '@ng-bootstrap/ng-bootstrap';  
+import { CompanyListComponent } from '../company-list/company-list.component';
 
 @Component({
   selector: 'app-main',
@@ -13,7 +14,7 @@ export class MainComponent implements OnInit {
 
   constructor(private modalService: NgbModal) {     }
   showModal(content) {  
-    this.modalService.open(content).result.then(  
+    this.modalService.open(CompanyListComponent,{ size: 'lg' } ).result.then(  
         (closeResult) => {  
             //modal close  
             console.log("modal closed : ", closeResult);  
@@ -27,9 +28,12 @@ export class MainComponent implements OnInit {
                 console.log(dismissReason);  
             }  
         })  
-}  
+    }  
   ngOnInit() {
   }
 
+  close(){
+    this.modalService.dismissAll();
+  }
 
 }

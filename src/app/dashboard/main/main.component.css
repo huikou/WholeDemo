@@ -1,0 +1,18 @@
+#welcome{
+    margin:0, 10px, 20px, 10px;
+}
+
+.card{
+    height: 30vh;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+}
+
+#communication{
+    height: 60vh;
+}
+
+#calendar{
+    height: 60vh;
+}

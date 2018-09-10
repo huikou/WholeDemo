@@ -36,7 +36,5 @@ export class UserService {
               { headers: reqHeader });
   }
 
-  getCompanies(){
-   return  this.http.get(this.rootUrl+'/api/v1/Companies/');
-  }
+
 }

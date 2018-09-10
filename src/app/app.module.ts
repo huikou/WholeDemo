@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
@@ -30,7 +30,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     AppRoutingModule,
     UserModule
   ],
-  providers: [UserService,AuthGuard,
+  providers: [NgbActiveModal, UserService,AuthGuard,
     ,
     {
       provide : HTTP_INTERCEPTORS,

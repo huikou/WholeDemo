@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
     navbarOpen = false;
   
     toggleNavbar() {
@@ -15,5 +16,11 @@ export class LayoutComponent implements OnInit {
     }
     ngOnInit() {
     }
-
+    isLoggedIn() {
+      return this.auth.isLoggedIn();
+    }
+  
+    logout(){
+      this.auth.logout();
+    }
 }

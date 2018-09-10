@@ -1,0 +1,31 @@
+#dashboard{ 
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-bottom:10px;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+  }
+  
+  #sidebar {
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 80vh;
+    align-items: flex-start;
+  }
+  
+  #sidebar.active {
+    margin-left: -80px;
+  }
+  
+  @media (max-width: 768px) {
+    #sidebar {
+        margin-left: -80px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+  }

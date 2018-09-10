@@ -1,0 +1,36 @@
+
+<div class="modal-content" >  
+    <div class="modal-header">  
+        <h5 class="modal-title">Company List</h5> <button type="button" class="close"
+         (click)="closeModal()">  
+
+        <span aria-hidden="true">×</span>  
+
+      </button> </div>  
+    <div class="modal-body">  
+    
+            <div>
+              <table  style="width:100%">
+              <tr>
+                  <th>First Name</th>
+                  <!-- <th>Last Name</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Address</th> -->
+              </tr>
+              <tr *ngFor="let company of companyList">
+                  <td> {{ company.comments }} </td>
+                  <!-- <td> { { contact.last_name } } </td>
+                  <td> { { contact.phone } } </td>
+                  <td> { { contact.email } } </td>
+                  <td> { { contact.address } } </td> -->
+              </tr>
+              </table>
+            
+            </div>
+    </div>  
+    <div class="modal-footer"> <button type="button" class="btn btn-secondary" 
+      (click)="dissmiss('Dismissed from dismiss button')">Dismiss</button> <button type="button" class="btn btn-primary" 
+      (click)="closeModal('Closed from Close button')">Close</button> </div>  
+</div>  
+

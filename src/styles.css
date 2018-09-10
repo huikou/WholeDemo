@@ -2,28 +2,3 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 
-.wrapper {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-}
-
-#sidebar {
-  min-width: 100px;
-  max-width: 100px;
-  min-height: 100vh;
-  align-items: flex-start;
-}
-
-#sidebar.active {
-  margin-left: -100px;
-}
-
-@media (max-width: 768px) {
-  #sidebar {
-      margin-left: -100px;
-  }
-  #sidebar.active {
-      margin-left: 0;
-  }
-}
