@@ -2,7 +2,7 @@
     <div class="col-md-3">
       <div class="card" style="height: 16rem;">
         <div class="card-body">
-          <h5 class="card-title">Companies <span style="color:blue">Total</span></h5>
+          <h5 class="card-title">Companies <a (click)="showModal(content)"><span style="color:blue">Total</span></a></h5>
           <h1 class="card-text">78</h1>
           <a href="#" class="btn btn-primary">Add Company</a>
         </div>
@@ -56,3 +56,20 @@
         </div>
       </div>
     </div>
+
+   
+<ng-template #content let-cl="close" let-di="dismiss">  
+    <div class="modal-content">  
+        <div class="modal-header">  
+            <h5 class="modal-title">Modal title</h5> <button type="button" class="close" (click)="cl('Closed from Close button')">  
+  
+            <span aria-hidden="true">×</span>  
+  
+          </button> </div>  
+        <div class="modal-body">  
+            <p>Modal body text goes here.</p>  
+        </div>  
+        <div class="modal-footer"> <button type="button" class="btn btn-secondary" (click)="di('Dismissed from dismiss button')">Dismiss</button> <button type="button" class="btn btn-primary" (click)="cl('Closed from Close button')">Close</button> </div>  
+    </div>  
+</ng-template> <button (click)="showModal(content)">Show Bootstrap Modal</button>  
+<hr>  
