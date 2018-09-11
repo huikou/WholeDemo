@@ -8,6 +8,12 @@
     display: flex;
     width: 100%;
     align-items: stretch;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:scroll;
   }
   
   #sidebar {
@@ -20,6 +26,11 @@
   #sidebar.active {
     margin-left: -80px;
   }
+
+  #content{
+      width:100%;
+  }
+
   
   @media (max-width: 768px) {
     #sidebar {

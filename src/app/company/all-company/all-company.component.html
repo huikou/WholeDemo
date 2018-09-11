@@ -1,0 +1,30 @@
+<h5 class="text-secondary title">Companies: <span class="text-primary">{{count}}</span></h5>
+<div >
+    <table class="table table-hover" >
+    <thead>
+      <tr>
+        <th>Company Id</th>
+        <th>Company Name</th>
+        <th>DBA</th>
+        <th>Next Pay Date</th>
+        <th>Active Employees</th> 
+        <th>Contact Name</th>
+        <th>Phone #</th>
+        <th>Status</th>
+      </tr> 
+    </thead>
+    <tbody>
+      <tr *ngFor="let company of companyList; let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+        <td> {{ company.CompanyId }} </td>
+        <td> {{ company.CompanyName }} </td>
+        <td> {{ company.DBA }} </td>
+        <td> {{ company.NextPayDate }} </td>
+        <td> {{ company.ActiveEmployees }} </td> 
+        <td> {{ company.ContactName }} </td>
+        <td> {{ company.Phone }} </td>
+        <td> {{ company.Status }} </td> 
+      </tr>
+    </tbody>
+    </table>
+
+</div>

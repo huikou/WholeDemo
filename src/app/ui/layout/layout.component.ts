@@ -14,8 +14,10 @@ export class LayoutComponent implements OnInit {
     toggleNavbar() {
       this.navbarOpen = !this.navbarOpen;
     }
+    
     ngOnInit() {
     }
+
     isLoggedIn() {
       return this.auth.isLoggedIn();
     }

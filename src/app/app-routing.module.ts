@@ -1,20 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { MainComponent } from './dashboard/main/main.component';
 import { UserComponent } from './user/user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { LayoutComponent } from './ui/layout/layout.component';
-import { AuthGuard } from './auth/auth.guard';
-
+import { AllCompanyComponent } from './company/all-company/all-company.component';
+import { CompanyMainComponent } from './company/company-main/company-main.component';
+import { CompanyDashComponent } from './company/company-dash/company-dash.component';
+import { EmployeesComponent } from './company/employees/employees.component';
+import { PayrollCenterComponent } from './company/payroll-center/payroll-center.component';
 
 const routes: Routes = [
   { path : '', redirectTo:'/login', pathMatch : 'full'},
   { 
     path: 'layout', component: LayoutComponent ,
     children: [{path: 'dashboard', component: MainComponent, canActivate:[AuthGuard] },
-               {path: '', redirectTo:'dashboard', pathMatch : 'full'}] 
+               {path: '', redirectTo:'dashboard', pathMatch : 'full'},
+               {path: 'company', component: AllCompanyComponent, canActivate:[AuthGuard] },
+               {path: 'companyMain', component: CompanyMainComponent, canActivate:[AuthGuard]  
+                    // children:[
+                    //         {path: 'companyDash', component: CompanyDashComponent, canActivate:[AuthGuard] } ,
+                    //         {path: 'employees', component: EmployeesComponent, canActivate:[AuthGuard] } ,
+                    //         {path: 'payrollCenter', component: PayrollCenterComponent, canActivate:[AuthGuard] } 
+                    //      ]
+                }
+              ]
   },
   {
     path: 'signup', component: UserComponent,

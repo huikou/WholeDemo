@@ -1,0 +1,8 @@
+.title{
+    padding:20px;
+}
+
+.table tr.active td {
+    background-color: lightskyblue !important;
+    color: white;
+  }
