@@ -5,19 +5,19 @@
           
           <!-- Links -->
     <ul class="navbar-nav">
-            <a class="navbar-brand" href="#"> Apex</a>
+            <a class="navbar-brand" href="#"><img src="assets/images/ApexLogoBlue.png" /></a>
     <li class="nav-item">
-        <a class="nav-link" routerLink="dashboard">Dashboard</a>
+        <a class="nav-link" routerLink="dashboard"><img src="assets/images/Apex/Home.png" /></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" routerLink="company">Company</a>
+        <a class="nav-link" routerLink="company"><img src="assets/images/Apex/SBO32.png" /></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Link 3</a>
+        <a class="nav-link" href="#"><img src="assets/images/Apex/Eftps32.png" /></a>
     </li>
     </ul>
     <ul class="nav navbar-nav align-self-end">
-        <li *ngIf="isLoggedIn()"><a href="javascript:void" (click)="logout()"><span class="fa fa-sign-out" ></span> Logout</a></li>
+        <li *ngIf="isLoggedIn()"><a href="javascript:void" (click)="logout()"><img src="assets/images/Logout16.png" /></a></li>
         <li *ngIf="!isLoggedIn()"><a href="#"><i class="sign-in-alt"></i> Login</a></li>
     </ul>
     </nav>
@@ -25,14 +25,9 @@
 
     <div id="content">
         <a href="javscript:void" id="sidebarCollapse"  (click)="toggleNavbar()"> 
-               <span> <i class="fa fa-arrow-circle-left fa-xs" ></i>slide</span>
+                <img src="assets/images/rew.gif" />
         </a> 
-        <div (click)="toggleNavbar()">
-            <i className="fa fa-arrow-circle-left fa-xs" ></i>
-         </div>
-         <i class="fa fa-cog" (click)="console.log('Clicked')"></i>
-         <i class="material-icons">face</i>
-         <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Plus_Minus_Hyphen-minus.svg" (click)="toggleNavbar()" />
+
       <div class="container-fullwidth" id="dashboard">                            
              <router-outlet></router-outlet>
       </div>

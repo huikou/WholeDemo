@@ -2,3 +2,38 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+ .table thead th{
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(128,128,128);
+
+}
+
+.more-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.more-icon:before, .more-icon:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  background-color: inherit;
+  border-radius: inherit;
+  }
+
+  .more-icon:before {
+  top: 4px;
+  }
+
+
+  .more-icon:after {
+  top: 8px;
+}

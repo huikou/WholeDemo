@@ -1,0 +1,16 @@
+#employees{
+    margin-top:40px;
+}
+
+#employees .table tr.active td {
+    background-color: lightskyblue !important;
+    color: white;
+  }
+
+  #employees .table tr >th{
+   border: none !important; 
+} 
+
+#employees .table  tr:last-child > td{
+    border-bottom: solid 1px #dee2e6; 
+ } 

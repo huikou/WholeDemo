@@ -1,3 +1,34 @@
-<p>
-  employees works!
-</p>
+<div *ngIf="isList;else employeeDetail">
+ 
+    <div id="employees" class="table-responsive">
+        <table class="table table-hover " >
+        <thead >
+          <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Employee Id</th>
+            <th>Job Title</th>
+            <th>OnBoardingProcess</th> 
+            <th>Status</th>
+            <th>Hire Date</th>
+            <th></th>
+          </tr> 
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employeeList; let i = index"  [class.active]="i == selectedRow">
+            <td> {{ employee.lastName }} </td>
+            <td> {{ employee.firstName }} </td>
+            <td> {{ employee.employeeAliasID }} </td>
+            <td> {{ employee.jobTitle }} </td>
+            <td> {{ employee.onboarding }} </td> 
+            <td> {{ employee.statusText }} </td>
+            <td> {{ employee.hireDate | date}} </td>
+            <td><a (click)="getEmployeeDetail(i)" href="javscript:void">More</a></td>            
+          </tr>
+        </tbody>
+        </table>
+    
+    </div>
+</div>
+
+ <ng-template #employeeDetail><app-employee-detail></app-employee-detail></ng-template>

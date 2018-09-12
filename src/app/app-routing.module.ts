@@ -12,6 +12,8 @@ import { CompanyMainComponent } from './company/company-main/company-main.compon
 import { CompanyDashComponent } from './company/company-dash/company-dash.component';
 import { EmployeesComponent } from './company/employees/employees.component';
 import { PayrollCenterComponent } from './company/payroll-center/payroll-center.component';
+import { EmployeeDetailComponent } from './company/employees/employee-detail/employee-detail.component';
+import { OverviewComponent } from './company/employees/employee-detail/overview/overview.component';
 
 const routes: Routes = [
   { path : '', redirectTo:'/login', pathMatch : 'full'},
@@ -20,12 +22,16 @@ const routes: Routes = [
     children: [{path: 'dashboard', component: MainComponent, canActivate:[AuthGuard] },
                {path: '', redirectTo:'dashboard', pathMatch : 'full'},
                {path: 'company', component: AllCompanyComponent, canActivate:[AuthGuard] },
-               {path: 'companyMain', component: CompanyMainComponent, canActivate:[AuthGuard]  
-                    // children:[
-                    //         {path: 'companyDash', component: CompanyDashComponent, canActivate:[AuthGuard] } ,
-                    //         {path: 'employees', component: EmployeesComponent, canActivate:[AuthGuard] } ,
-                    //         {path: 'payrollCenter', component: PayrollCenterComponent, canActivate:[AuthGuard] } 
-                    //      ]
+               {path: 'companyMain', component: CompanyMainComponent, canActivate:[AuthGuard],  
+                    children:[
+                             {path: 'companyDash', component: CompanyDashComponent, canActivate:[AuthGuard] } ,
+                             {path: 'employees', component: EmployeesComponent, canActivate:[AuthGuard],
+                              children:[
+                                {path: 'employeeDetail', component: EmployeeDetailComponent, canActivate:[AuthGuard]}
+                              ] } ,
+                             {path: 'payrollCenter', component: PayrollCenterComponent, canActivate:[AuthGuard]} ,
+                             {path: 'overview', component: OverviewComponent, canActivate:[AuthGuard]} 
+                     ]
                 }
               ]
   },
