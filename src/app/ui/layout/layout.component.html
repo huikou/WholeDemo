@@ -27,6 +27,12 @@
         <a href="javscript:void" id="sidebarCollapse"  (click)="toggleNavbar()"> 
                <span> <i class="fa fa-arrow-circle-left fa-xs" ></i>slide</span>
         </a> 
+        <div (click)="toggleNavbar()">
+            <i className="fa fa-arrow-circle-left fa-xs" ></i>
+         </div>
+         <i class="fa fa-cog" (click)="console.log('Clicked')"></i>
+         <i class="material-icons">face</i>
+         <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Plus_Minus_Hyphen-minus.svg" (click)="toggleNavbar()" />
       <div class="container-fullwidth" id="dashboard">                            
              <router-outlet></router-outlet>
       </div>

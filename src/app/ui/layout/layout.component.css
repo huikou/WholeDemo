@@ -21,6 +21,15 @@
     max-width: 80px;
     min-height: 80vh;
     align-items: flex-start;
+  
+  }
+
+  .navbar-brand{
+    margin-top: 40px;
+  }
+
+  .nav-item{
+    margin-top: 40px;
   }
   
   #sidebar.active {
