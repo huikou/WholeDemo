@@ -1,25 +1,35 @@
-<div class="employeeDetail">
-<nav class="navbar bg-light navbar-right sidebar" >
-    
-    <!-- Links -->
+<div class="container-fullwidth employeeDetail">
+<nav class="navbar bg-light navbar-right sidebar" >   
+
 <ul class="navbar-nav">
   <li class="nav-item">
-    <a class="nav-link" routerLink="overview">Overview</a>
+    <!-- <a class="nav-link" routerLink="overview">Overview</a> -->
+    <a href="javscript:void"  (click)="toggleNavbar(0)">Overview</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" routerLink="company">General Info</a>
+    <!-- <a class="nav-link" [routerLink]="['generalInfo', empl]">General Info</a> -->
+    <a href="javscript:void"  (click)="toggleNavbar(1)">General Info</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Employment</a>
   </li>
 </ul>
-
 </nav>
-
-   <div class="container-fullwidth" >                            
-         <router-outlet></router-outlet>
+   <div class="container-fluid" > 
+      <div *ngIf="showOverview"><app-overview [currentEmpl]="currentEmpl"></app-overview></div>
+      <div *ngIf="showEmployeeInfo"><app-general-info [currentEmpl]="currentEmpl"></app-general-info></div>                           
+         <!-- <router-outlet></router-outlet> -->
   </div> 
-
-
-
-</div>
+</div> 
+<!--
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #drawer mode="side" opened role="navigation">
+      <mat-nav-list>
+        <a mat-list-item routerLink='/overview'>overview</a>
+        <a mat-list-item routerLink='/second'>Second Component</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->

@@ -12,6 +12,7 @@ export class EmployeesComponent implements OnInit {
  employeeList: any[];
  isList=true;
  selectedRow: number;
+ selectedEmpl:any;
   constructor(private employeeListService : EmployeeListService, private router : Router) { }
 
   ngOnInit() {
@@ -26,7 +27,7 @@ export class EmployeesComponent implements OnInit {
 
   getEmployeeDetail(i){
     this.isList= !this.isList;
-    let employee=this.employeeList[i];
+    this.selectedEmpl=this.employeeList[i];
     this.selectedRow = i;
     // this.router.navigate(['/layout/companyMain/employees/employeeDetail']);
   }

@@ -1,0 +1,11 @@
+.empl-info{
+    margin-left:20px;
+    margin-right:10px;
+}
+
+.card.empl-info-photo{
+    height:30vh;
+}
+.card.empl-info-form{
+    height:80vh;
+}

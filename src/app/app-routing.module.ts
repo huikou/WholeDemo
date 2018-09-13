@@ -14,6 +14,7 @@ import { EmployeesComponent } from './company/employees/employees.component';
 import { PayrollCenterComponent } from './company/payroll-center/payroll-center.component';
 import { EmployeeDetailComponent } from './company/employees/employee-detail/employee-detail.component';
 import { OverviewComponent } from './company/employees/employee-detail/overview/overview.component';
+import { GeneralInfoComponent } from './company/employees/employee-detail/general-info/general-info.component';
 
 const routes: Routes = [
   { path : '', redirectTo:'/login', pathMatch : 'full'},
@@ -30,7 +31,8 @@ const routes: Routes = [
                                 {path: 'employeeDetail', component: EmployeeDetailComponent, canActivate:[AuthGuard]}
                               ] } ,
                              {path: 'payrollCenter', component: PayrollCenterComponent, canActivate:[AuthGuard]} ,
-                             {path: 'overview', component: OverviewComponent, canActivate:[AuthGuard]} 
+                             {path: 'overview', component: OverviewComponent, canActivate:[AuthGuard]}, 
+                             {path: 'generalInfo', component: GeneralInfoComponent, canActivate:[AuthGuard]},
                      ]
                 }
               ]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-overview',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview.component.css']
 })
 export class OverviewComponent implements OnInit {
-
+  @Input() currentEmpl: any;
   constructor() { }
 
   ngOnInit() {
