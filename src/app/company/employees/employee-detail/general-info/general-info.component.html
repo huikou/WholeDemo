@@ -5,7 +5,7 @@
                   <div class="card empl-info-photo" >
                     <div class="card-body">
                       <h5 class="card-title">Employee photo</h5>
-                      <p class="card-text"><img src="assets/images/nature.jpeg" /></p>
+                      <p class="card-text"></p>
                       <a href="#" class="btn btn-primary">Upload</a>
                     </div>
                   </div>
@@ -17,18 +17,66 @@
             <div class="card-body">
                 <form #emplInfoForm = "ngForm">
                     <div class="form-row">
-                      <div class="form-group col-md-4">
-                        <label for="inputEmail4">First Name</label>
-                        <input type="email" class="form-control" id="inputEmail4" name="inputEmail4" [(ngModel)] = "currentEmpl.firstName" placeholder="" />
+                      <div class="form-group col-md-4 input-group">
+                          <span class="has-float-label">
+                              <input class="form-control" id="first" name="first" type="text" [(ngModel)] = "currentEmpl.firstName" placeholder="First Name"/>
+                              <label for="first">First Name</label>
+                          </span>
+                        <!-- <label for="inputEmail4">First Name</label>
+                        <input type="email" class="form-control" id="inputEmail4" name="inputEmail4" [(ngModel)] = "currentEmpl.firstName" placeholder="" /> -->
                       </div>
-                      <div class="form-group col-md-4">
-                        <label for="inputPassword4">Middle Name</label>
-                        <input type="password" class="form-control" id="inputPassword4" name="inputPass"  [(ngModel)] = "currentEmpl.middleName" placeholder="" />
+                      <div class="form-group col-md-4 input-group" >
+                          <span class="has-float-label">
+                              <input class="form-control" id="middle" name="middle" type="text" [(ngModel)] = "currentEmpl.middleName" placeholder="Middle Name"/>
+                              <label for="middle">Middle Name</label>
+                          </span>
+                        <!-- <label for="inputPassword4">Middle Name</label>
+                        <input type="password" class="form-control" id="inputPassword4" name="inputPass"  [(ngModel)] = "currentEmpl.middleName" placeholder="" /> -->
                       </div>
-                      <div class="form-group">
-                          <label for="inputAddress">Last Name</label>
-                          <input type="text" class="form-control" id="inputAddress" name="inputAddress" [(ngModel)] = "currentEmpl.lastName" placeholder="" />
-                        </div>
+                      <div class="form-group col-md-4 input-group ">
+                          <span class="has-float-label">
+                              <input class="form-control" id="last" name="last" type="text" [(ngModel)] = "currentEmpl.lastName" placeholder="Last Name"/>
+                              <label for="last">First Name</label>
+                          </span>
+                          <!-- <label for="inputAddress">Last Name</label>
+                          <input type="text" class="form-control" id="inputAddress" name="inputAddress" [(ngModel)] = "currentEmpl.lastName" placeholder="" /> -->
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4 input-group">
+                          <span class="has-float-label">
+                              <input class="form-control" id="suffix" name="suffix" type="text" [(ngModel)] = "currentEmpl.suffixText" placeholder="Suffix"/>
+                              <label for="suffix">Suffix</label>
+                          </span>
+                        <!-- <label for="sufix">Suffix</label>
+                        <input type="text" class="form-control" id="suffix" name="suffix" [(ngModel)] = "currentEmpl.suffixText" placeholder="Suffix" /> -->
+                      </div>
+                      <div class="form-group col-md-8 input-group">
+                          <span class="has-float-label">
+                              <input class="form-control" id="goesby" name="goesby" type="text" [(ngModel)] = "currentEmpl.nickName" placeholder="Goes By"/>
+                              <label for="goesby">Goes By</label>
+                          </span>
+                        <!-- <label for="goesby">Goes by</label>
+                        <input type="text" class="form-control" id="goesby" name="goesby"  [(ngModel)] = "currentEmpl.middleName" placeholder="Goes By" /> -->
+                      </div>               
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4 input-group">
+                          <span class="has-float-label">
+                              <input class="form-control" id="gender" name="gender" type="text" [(ngModel)] = "currentEmpl.genderText" placeholder="Gender"/>
+                              <label for="gender">Gender</label>
+                          </span>
+                        <!-- <label for="gener">Gender</label>
+                        <input type="text" class="form-control" id="gender" name="gender" [(ngModel)] = "currentEmpl.genderText" placeholder="gender" /> -->
+                      </div>
+                      <div class="form-group col-md-4 input-group">
+                          <span class="has-float-label">
+                              <input class="form-control" id="birthDate" name="birthDate" type="text" [(ngModel)] = "currentEmpl.birthDate" placeholder="Birth Date"/>
+                              <label for="birthDate">Birth Date</label>
+                          </span>
+                        <!-- <label for="birthday">Birth Date</label>
+                        <input type="text" class="form-control" id="birthday" name="birthday"  [(ngModel)] = "currentEmpl.birthDate" placeholder="" /> -->
+                      </div>               
                     </div>
                   </form>
             </div>

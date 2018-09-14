@@ -43,3 +43,21 @@
   .more-icon:after {
   top: 8px;
 }
+
+
+.has-float-label .form-control:placeholder-shown:not(:focus)+*{
+  font-size:100%;
+  top: 0.5em;
+}
+
+.btn{
+  border: solid 2px lightskyblue;
+  background-color: lightskyblue;
+}
+
+.btn.lightButton{
+  border: solid 2px lightskyblue;
+  color: lightskyblue;
+  background-color: white;
+}
+

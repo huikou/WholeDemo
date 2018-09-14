@@ -15,6 +15,7 @@ import { EmployeeDetailComponent } from './employees/employee-detail/employee-de
 import { EmployeeListService } from '../shared/employee/employee-list.service';
  import { OverviewComponent } from './employees/employee-detail/overview/overview.component';
 import { GeneralInfoComponent } from './employees/employee-detail/general-info/general-info.component';
+import { EmploymentComponent } from './employees/employee-detail/employment/employment.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import { GeneralInfoComponent } from './employees/employee-detail/general-info/g
   ],
   providers: [EmployeeListService],
   declarations: [ CompanyMainComponent, AllCompanyComponent, CompanyDashComponent, EmployeesComponent,
-     PayrollCenterComponent, EmployeeDetailComponent, OverviewComponent, GeneralInfoComponent],
+     PayrollCenterComponent, EmployeeDetailComponent, OverviewComponent, GeneralInfoComponent, EmploymentComponent],
   exports:[CompanyMainComponent, AllCompanyComponent,EmployeeDetailComponent,
     CommonModule, MatButtonModule, MatToolbarModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule ]
 })
