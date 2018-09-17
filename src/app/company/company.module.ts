@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import {MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular';
 import { CompanyMainComponent } from './company-main/company-main.component';
 import { AllCompanyComponent } from './all-company/all-company.component';
 import { CompanyDashComponent } from './company-dash/company-dash.component';
@@ -25,7 +26,8 @@ import { EmploymentComponent } from './employees/employee-detail/employment/empl
     RouterModule,
     CommonModule, MatButtonModule,MatToolbarModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    [AgGridModule.withComponents(null)]
   ],
   providers: [EmployeeListService],
   declarations: [ CompanyMainComponent, AllCompanyComponent, CompanyDashComponent, EmployeesComponent,
