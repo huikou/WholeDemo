@@ -19,7 +19,7 @@
         [pagination]="true"
         [paginationPageSize]="paginationPageSize"
         [paginationNumberFormatter]="paginationNumberFormatter"
-        (cellValueChanged)="onCellValueChanged($event)"
+        
         (gridReady)="onGridReady($event)"
         [masterDetail]="true"
         [detailCellRendererParams]="detailCellRendererParams"
@@ -40,7 +40,7 @@
     </ag-grid-angular>
 
 </div>
-<div style="position: fixed; top: 5; left: 10;">
+<!-- <div style="position: fixed; top: 5; left: 10;">
         Page Size:
         <select (change)="onPageSizeChanged()" id="page-size">
             <option value="10" selected="">10</option>
@@ -48,7 +48,7 @@
             <option value="500">500</option>
             <option value="1000">1000</option>
         </select>
-</div>`
+</div>` -->
  
  <!-- <ag-grid-angular
     #agGrid
@@ -62,11 +62,10 @@
     [enableFilter]="true"
    
     ></ag-grid-angular>  -->
-
+<div>
     <ag-grid-angular
-    #agGrid2
-    style="width: 100%; height: 100%;"
-    id="myGrid2"
+    #topGrid1
+    style="width: 100%; height: 300px;"
     [rowData]="rowData2"
     class="ag-theme-balham"
     [columnDefs]="columnDefs2"
@@ -74,4 +73,20 @@
     [enableFilter]="true"
     [enableColResize]="true"
     (gridReady)="onGridReady1($event)"
+    [gridOptions]="topOptions"
+    (cellValueChanged)="onCellValueChanged($event)"
     ></ag-grid-angular> 
+
+    <ag-grid-angular
+            style="width: 100%; height: 100px"
+            #bottomGrid1
+            class="ag-theme-balham"
+            [rowData]="bottomData2"
+            [gridOptions]="bottomOptions2"
+            headerHeight="0"
+            [rowStyle]="{ fontWeight: 'bold' }"
+            (gridReady)="onGridReady2($event)"
+            [columnDefs]="columnDefs2">
+    </ag-grid-angular>
+
+</div>

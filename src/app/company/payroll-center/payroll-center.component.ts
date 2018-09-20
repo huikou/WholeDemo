@@ -31,9 +31,14 @@ export class PayrollCenterComponent implements OnInit {
   private detailCellRendererParams;
   private components;
   
+  private gridApi2;
+  private gridColumnApi2;
 
   topOptions = {alignedGrids: []};
   bottomOptions = {alignedGrids: []};
+
+  topOptions2 = {alignedGrids: []};
+  bottomOptions2 = {alignedGrids: []};
 
     @ViewChild('topGrid') topGrid;
     @ViewChild('bottomGrid') bottomGrid;
@@ -61,6 +66,9 @@ export class PayrollCenterComponent implements OnInit {
 
      this.topOptions.alignedGrids.push(this.bottomOptions);
      this.bottomOptions.alignedGrids.push(this.topOptions);
+
+     this.topOptions2.alignedGrids.push(this.bottomOptions2);
+     this.bottomOptions2.alignedGrids.push(this.topOptions2);
 
     this.detailCellRendererParams = {
       detailGridOptions: {
@@ -96,7 +104,8 @@ export class PayrollCenterComponent implements OnInit {
         state:1,
         city: {id: 1, name:'NY'},
         country1: {id:1, name: 'Indian'},
-        state1:{id :1,name:'Andhra Pradesh'}
+        state1:{id :1,name:'Andhra Pradesh'},
+        rate:1
       },
       {
         address: 2,
@@ -104,7 +113,9 @@ export class PayrollCenterComponent implements OnInit {
         state:2,
         city: {id: 5, name:'LA'},
         country1: {id:1, name: 'Indian'},
-        state1:{id:2, name: 'Madhya Pradesh'}
+        state1:{id:2, name: 'Madhya Pradesh'},
+        rate:2
+
       },
       {
         address: 3,
@@ -112,7 +123,8 @@ export class PayrollCenterComponent implements OnInit {
         state:3,
         city: {id: 9, name:'SC'},
         country1: {id:2, name: 'USA'},
-        state1: {id:3, name: 'San Francisco'}
+        state1: {id:3, name: 'San Francisco'},
+        rate:3
       },
       {
         address: 4,
@@ -121,6 +133,7 @@ export class PayrollCenterComponent implements OnInit {
         city: {id: 15, name:'PA'},
         country1: {id:3, name: 'Australian'},
         state1: {id:5, name: 'New South Wales'},
+        rate :4
       }
     ];
 
@@ -224,10 +237,15 @@ export class PayrollCenterComponent implements OnInit {
             }
          }
         }
+      },
+      {
+        headerName:"rate",
+        field:"rate",
+        editable: true,
       }
     ]
-
-   }
+  
+  }
 
   ngOnInit() {
       
@@ -246,7 +264,28 @@ export class PayrollCenterComponent implements OnInit {
     }
 ];
 
+
+bottomData2 = [
+  {
+    address: '',
+    country: '',
+    state:'',
+    city: '',
+    country1: '',
+    state1:'',
+    rate:1
+  }
+]
 onCellValueChanged(params: any) {
+  let colId=params.column.colId;
+  let currentData: any[] = [];
+  let total=0;
+  this.gridApi1.forEachNode( (rowNode) => {
+    total +=parseInt(rowNode.data[colId]);
+    currentData.push(rowNode.data);
+  });
+  var rowNode = this.gridApi2.getDisplayedRowAtIndex(0);
+  rowNode.setDataValue(colId, total);
 //   this.athleteService.save(params.data)
 //                      .subscribe(
 //                          savedAthlete => {
@@ -284,7 +323,10 @@ onGridReady1(params) {
   this.gridColumnApi = params.columnApi;
 }
 
-
+onGridReady2(params) {
+  this.gridApi2 = params.api;
+  this.gridColumnApi2 = params.columnApi;
+}
 
   onFirstDataRendered(params) {
     params.api.sizeColumnsToFit();
@@ -497,4 +539,12 @@ function getDatePicker() {
     return false;
   };
   return Datepicker;
+}
+
+function printNode(node, index) {
+  if (node.group) {
+    console.log(index + " -> group: " + node.key);
+  } else {
+    console.log(index + " -> data: " + node.data.country + ", " + node.data.athlete);
+  }
 }
