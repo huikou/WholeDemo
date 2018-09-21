@@ -10,8 +10,9 @@ export class AllCompanyComponent implements OnInit {
   companyList: any[];
   count;
   constructor(private router : Router) { }
-
+ show=true;
   ngOnInit() {
+    this.show=true;
     this.companyList=[
       {
           CompanyId:'0000209',
@@ -39,6 +40,7 @@ export class AllCompanyComponent implements OnInit {
   }
   setClickedRow = function(index){
     this.selectedRow = index;
-    this.router.navigate(['/layout/companyMain']);
+    // this.show=!this.show;
+    this.router.navigate(['/layout/company/companyMain']);
   }
 }

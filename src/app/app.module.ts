@@ -30,7 +30,7 @@ import { CompanyModule } from './company/company.module';
     DashboardModule,
     AppRoutingModule,
     UserModule,
-    CompanyModule
+    // CompanyModule
   ],
   providers: [NgbActiveModal, UserService,AuthGuard,
     ,

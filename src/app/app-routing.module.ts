@@ -22,19 +22,24 @@ const routes: Routes = [
     path: 'layout', component: LayoutComponent ,
     children: [{path: 'dashboard', component: MainComponent, canActivate:[AuthGuard] },
                {path: '', redirectTo:'dashboard', pathMatch : 'full'},
-               {path: 'company', component: AllCompanyComponent, canActivate:[AuthGuard] },
-               {path: 'companyMain', component: CompanyMainComponent, canActivate:[AuthGuard],  
-                    children:[
-                             {path: 'companyDash', component: CompanyDashComponent, canActivate:[AuthGuard] } ,
-                             {path: 'employees', component: EmployeesComponent, canActivate:[AuthGuard],
-                              children:[
-                                {path: 'employeeDetail', component: EmployeeDetailComponent, canActivate:[AuthGuard]}
-                              ] } ,
-                             {path: 'payrollCenter', component: PayrollCenterComponent, canActivate:[AuthGuard]} ,
-                             {path: 'overview', component: OverviewComponent, canActivate:[AuthGuard]}, 
-                             {path: 'generalInfo', component: GeneralInfoComponent, canActivate:[AuthGuard]},
-                     ]
-                }
+               {
+                path: "company",
+                loadChildren: "./company/company.module#CompanyModule"
+                },
+           
+              //  {path: 'company', component: AllCompanyComponent, canActivate:[AuthGuard] },
+              //  {path: 'companyMain', component: CompanyMainComponent, canActivate:[AuthGuard],  
+              //       children:[
+              //                {path: 'companyDash', component: CompanyDashComponent, canActivate:[AuthGuard] } ,
+              //                {path: 'employees', component: EmployeesComponent, canActivate:[AuthGuard],
+              //                 children:[
+              //                   {path: 'employeeDetail', component: EmployeeDetailComponent, canActivate:[AuthGuard]}
+              //                 ] } ,
+              //                {path: 'payrollCenter', component: PayrollCenterComponent, canActivate:[AuthGuard]} ,
+              //                {path: 'overview', component: OverviewComponent, canActivate:[AuthGuard]}, 
+              //                {path: 'generalInfo', component: GeneralInfoComponent, canActivate:[AuthGuard]},
+              //        ]
+              //   }
               ]
   },
   {
