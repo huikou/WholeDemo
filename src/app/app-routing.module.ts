@@ -7,14 +7,7 @@ import { UserComponent } from './user/user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { LayoutComponent } from './ui/layout/layout.component';
-import { AllCompanyComponent } from './company/all-company/all-company.component';
-import { CompanyMainComponent } from './company/company-main/company-main.component';
-import { CompanyDashComponent } from './company/company-dash/company-dash.component';
-import { EmployeesComponent } from './company/employees/employees.component';
-import { PayrollCenterComponent } from './company/payroll-center/payroll-center.component';
-import { EmployeeDetailComponent } from './company/employees/employee-detail/employee-detail.component';
-import { OverviewComponent } from './company/employees/employee-detail/overview/overview.component';
-import { GeneralInfoComponent } from './company/employees/employee-detail/general-info/general-info.component';
+
 
 const routes: Routes = [
   { path : '', redirectTo:'/login', pathMatch : 'full'},
@@ -27,19 +20,6 @@ const routes: Routes = [
                 loadChildren: "./company/company.module#CompanyModule"
                 },
            
-              //  {path: 'company', component: AllCompanyComponent, canActivate:[AuthGuard] },
-              //  {path: 'companyMain', component: CompanyMainComponent, canActivate:[AuthGuard],  
-              //       children:[
-              //                {path: 'companyDash', component: CompanyDashComponent, canActivate:[AuthGuard] } ,
-              //                {path: 'employees', component: EmployeesComponent, canActivate:[AuthGuard],
-              //                 children:[
-              //                   {path: 'employeeDetail', component: EmployeeDetailComponent, canActivate:[AuthGuard]}
-              //                 ] } ,
-              //                {path: 'payrollCenter', component: PayrollCenterComponent, canActivate:[AuthGuard]} ,
-              //                {path: 'overview', component: OverviewComponent, canActivate:[AuthGuard]}, 
-              //                {path: 'generalInfo', component: GeneralInfoComponent, canActivate:[AuthGuard]},
-              //        ]
-              //   }
               ]
   },
   {
@@ -48,7 +28,6 @@ const routes: Routes = [
   },
   {
     path: 'login', component: SignInComponent,    
-    // children: [{ path: 'dashboard', component: MainComponent }]
   },
 ];
 
