@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GetPayrollByDateService {
-  readonly rootUrl = 'http://localhost:50877';
+  //readonly rootUrl = 'http://localhost:50877';
+  readonly rootUrl = 'http://axdweb01:7002';
   constructor(private http: HttpClient) { }
 
   getPayrollByDate(){

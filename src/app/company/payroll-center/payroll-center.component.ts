@@ -19,6 +19,9 @@ export class PayrollCenterComponent implements OnInit {
   private paginationNumberFormatter;
   private gridApi;
   private gridColumnApi;
+  private gridApi2;
+  private gridColumnApi2;
+
 
   private rowData1;
   private columnDefs1;
@@ -31,8 +34,6 @@ export class PayrollCenterComponent implements OnInit {
   private detailCellRendererParams;
   private components;
   
-  private gridApi2;
-  private gridColumnApi2;
 
   topOptions = {alignedGrids: []};
   bottomOptions = {alignedGrids: []};
@@ -53,7 +54,7 @@ export class PayrollCenterComponent implements OnInit {
     params = params.append('locationAliasId', "00000010");
     params = params.append('divisionAliasId', "00000001");
 
-    http.get<any>('http://localhost:50877'+'/api/v2/Companies/00010029/Departments', {params: params}).subscribe((data : any[])=>{
+    http.get<any>('http://axdweb01:7002'+'/api/v2/Companies/00010029/Departments', {params: params}).subscribe((data : any[])=>{
       
        this.createClumns(data);   
     },
@@ -104,8 +105,7 @@ export class PayrollCenterComponent implements OnInit {
         state:1,
         city: {id: 1, name:'NY'},
         country1: {id:1, name: 'Indian'},
-        state1:{id :1,name:'Andhra Pradesh'},
-        rate:1
+        state1:{id :1,name:'Andhra Pradesh'}
       },
       {
         address: 2,
@@ -113,9 +113,7 @@ export class PayrollCenterComponent implements OnInit {
         state:2,
         city: {id: 5, name:'LA'},
         country1: {id:1, name: 'Indian'},
-        state1:{id:2, name: 'Madhya Pradesh'},
-        rate:2
-
+        state1:{id:2, name: 'Madhya Pradesh'}
       },
       {
         address: 3,
@@ -123,8 +121,7 @@ export class PayrollCenterComponent implements OnInit {
         state:3,
         city: {id: 9, name:'SC'},
         country1: {id:2, name: 'USA'},
-        state1: {id:3, name: 'San Francisco'},
-        rate:3
+        state1: {id:3, name: 'San Francisco'}
       },
       {
         address: 4,
@@ -133,7 +130,6 @@ export class PayrollCenterComponent implements OnInit {
         city: {id: 15, name:'PA'},
         country1: {id:3, name: 'Australian'},
         state1: {id:5, name: 'New South Wales'},
-        rate :4
       }
     ];
 
@@ -235,7 +231,7 @@ export class PayrollCenterComponent implements OnInit {
         cellEditorParams: function(params) {
         var allowedStates=getStates().filter(x=>{return x.country_id==params.data.country1.id});
         return{
-          cellHeight: 50,
+          cellHeight: 30,
             values: allowedStates,
             formatValue:  function(value) {
               return value.name;
@@ -244,13 +240,15 @@ export class PayrollCenterComponent implements OnInit {
         }
       },
       {
-        headerName:"rate",
-        field:"rate",
+        headerName: "rate",
+        field: "rate",
+        width:100,
         editable: true,
+
       }
     ]
-  
-  }
+
+   }
 
   ngOnInit() {
       
@@ -268,38 +266,6 @@ export class PayrollCenterComponent implements OnInit {
 
     }
 ];
-
-
-bottomData2 = [
-  {
-    address: '',
-    country: '',
-    state:'',
-    city: '',
-    country1: '',
-    state1:'',
-    rate:1
-  }
-]
-onCellValueChanged(params: any) {
-  let colId=params.column.colId;
-  let currentData: any[] = [];
-  let total=0;
-  this.gridApi1.forEachNode( (rowNode) => {
-    total +=parseInt(rowNode.data[colId]);
-    currentData.push(rowNode.data);
-  });
-  var rowNode = this.gridApi2.getDisplayedRowAtIndex(0);
-  rowNode.setDataValue(colId, total);
-//   this.athleteService.save(params.data)
-//                      .subscribe(
-//                          savedAthlete => {
-//                              console.log('Athlete Saved');
-//                              this.setAthleteRowData();
-//                          },
-//                          error => console.log(error)
-//                      )
-}
 
 onPageSizeChanged(newPageSize) {
   // var value = document.getElementById("page-size").value;
@@ -548,12 +514,4 @@ function getDatePicker() {
     return false;
   };
   return Datepicker;
-}
-
-function printNode(node, index) {
-  if (node.group) {
-    console.log(index + " -> group: " + node.key);
-  } else {
-    console.log(index + " -> data: " + node.data.country + ", " + node.data.athlete);
-  }
 }
