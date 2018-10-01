@@ -90,3 +90,8 @@
     </ag-grid-angular>
 
 </div>
+<div>
+    <button (click)="deleteSelectedRows()" [disabled]="!rowsSelected()">
+            Delete Selected Row
+    </button>
+</div>

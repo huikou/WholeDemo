@@ -135,6 +135,11 @@ export class PayrollCenterComponent implements OnInit {
 
     this.columnDefs2 = [
       {
+        field: 'name',
+        editable: true,
+        checkboxSelection: true
+      },
+      {
         headerName: "Address",
         field: "address",
     
@@ -329,6 +334,10 @@ onGridReady2(params) {
       },
     ];
   }
+
+  rowsSelected() {
+    return this.gridApi1 && this.gridApi1.getSelectedRows().length > 0;
+}
 }
 var carMappings = {
   tyt: "Toyota",
