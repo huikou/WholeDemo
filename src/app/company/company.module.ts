@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule  } from '@angular/material/tabs';
 import {MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from "@angular/material"
 import { FormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 import { CompanyMainComponent } from './company-main/company-main.component';
@@ -24,6 +25,7 @@ import { CompanyRoutingModule } from './/company-routing.module';
     CompanyRoutingModule,
     CommonModule, MatButtonModule,MatToolbarModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule,
     MatFormFieldModule,
+    MatDialogModule,
     FormsModule,
     [AgGridModule.withComponents(null)]
   ],

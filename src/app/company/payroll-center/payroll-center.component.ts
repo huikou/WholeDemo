@@ -54,7 +54,7 @@ export class PayrollCenterComponent implements OnInit {
     params = params.append('locationAliasId', "00000010");
     params = params.append('divisionAliasId', "00000001");
 
-    http.get<any>('http://axdweb01:7002'+'/api/v2/Companies/00010029/Departments', {params: params}).subscribe((data : any[])=>{
+    http.get<any>('http://axdweb01.apex.com:7002'+'/api/v2/Companies/00010029/Departments', {params: params}).subscribe((data : any[])=>{
       
        this.createClumns(data);   
     },
