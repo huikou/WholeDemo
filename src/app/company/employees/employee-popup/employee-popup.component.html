@@ -4,10 +4,11 @@
    <div class="row">
       <div class="col-md-6" >
         <mat-form-field appearance="outline"
-            [floatLabel]="auto">
+            ><mat-label>Course Description</mat-label>
             <input matInput
                     placeholder="Course Description"
                   formControlName="description">
+            <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </div>
       <div class="col-md-6" >
@@ -28,29 +29,34 @@
          </mat-form-field>
       </div>
   </div>
-      <mat-form-field>
+  <div class="row">
+        <div class="col-md-6" >
+        <mat-form-field>
+                <mat-label>Release Date</mat-label>
+            <input matInput [matDatepicker]="myDatepicker"
+                formControlName="releasedAt">
 
-        <input matInput [matDatepicker]="myDatepicker"
-            formControlName="releasedAt">
+            <mat-datepicker-toggle matSuffix
+                                [for]="myDatepicker">
 
-        <mat-datepicker-toggle matSuffix
-                               [for]="myDatepicker">
+            </mat-datepicker-toggle>
 
-        </mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
 
-        <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+        </div>
+        <div class="col-md-6" >
+            <mat-form-field>
+                    <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description"
+                    formControlName="longDescription">
 
-    </mat-form-field>
-      <mat-form-field>
+                </textarea>
 
-        <textarea matInput placeholder="Description"
-            formControlName="longDescription">
-
-        </textarea>
-
-    
-  </mat-form-field>
- 
+            
+        </mat-form-field>
+        </div>
+</div>
 </mat-dialog-content>
 
 <mat-dialog-actions>

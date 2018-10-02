@@ -17,7 +17,7 @@ const routes: Routes = [
                {path: '', redirectTo:'dashboard', pathMatch : 'full'},
                {
                 path: "company",
-                loadChildren: "src/app/company/company.module#CompanyModule"
+                loadChildren: "./company/company.module#CompanyModule"
                 },
            
               ]

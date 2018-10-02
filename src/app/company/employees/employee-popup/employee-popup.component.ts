@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 ///import {Course} from "../model/course";
-import {FormBuilder, Validators, FormGroup} from "@angular/forms";
+import {FormBuilder, Validators, FormGroup, FormControl} from "@angular/forms";
 //import * as moment from 'moment';
 
 @Component({
@@ -17,11 +17,14 @@ export class EmployeePopupComponent implements OnInit {
       this.description = data.description;
 
       this.form = fb.group({
-        description: ['description', Validators.required],
-        category: ['category', Validators.required],
-        releasedAt: ['', Validators.required],
-        longDescription: ['longDescription',Validators.required]
-    });
+        description: new FormControl('description', {validators: Validators.required, updateOn: 'blur'}),
+        category: ['BEGINNER', Validators.required],
+        releasedAt: ['12/12/2014', Validators.required],
+        longDescription: new FormControl('',Validators.compose([
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        ]))
+       });
     }
 
   ngOnInit() {
