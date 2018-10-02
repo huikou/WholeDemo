@@ -3,11 +3,8 @@ import { EmployeeListService } from '../../shared/employee/employee-list.service
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogConfig} from "@angular/material";
-<<<<<<< HEAD
-=======
 import { EmployeePopupComponent } from './employee-popup/employee-popup.component';
 
->>>>>>> acdf571cf86d12772ad8a846ce9deaa569d000d8
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -18,11 +15,7 @@ export class EmployeesComponent implements OnInit {
  isList=true;
  selectedRow: number;
  selectedEmpl:any;
-<<<<<<< HEAD
-  constructor(private employeeListService : EmployeeListService, private router : Router,private dialog: MatDialog) { }
-=======
   constructor(private employeeListService : EmployeeListService, private router : Router, private dialog: MatDialog) { }
->>>>>>> acdf571cf86d12772ad8a846ce9deaa569d000d8
 
   ngOnInit() {
     this.employeeListService.getEmployees().subscribe((data : any)=>{
@@ -41,11 +34,6 @@ export class EmployeesComponent implements OnInit {
     // this.router.navigate(['/layout/companyMain/employees/employeeDetail']);
   }
 
-<<<<<<< HEAD
-  openDialog() {
-
-    const dialogConfig = new MatDialogConfig();
-=======
   openDialog(i) {
 
     const dialogConfig = new MatDialogConfig();
@@ -64,12 +52,6 @@ export class EmployeesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
         data => console.log("Dialog output:", data)
     );    
-  }
->>>>>>> acdf571cf86d12772ad8a846ce9deaa569d000d8
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-
-    this.dialog.open(CourseDialogComponent, dialogConfig);
+  
   }
 }

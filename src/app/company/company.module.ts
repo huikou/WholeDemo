@@ -3,12 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule  } from '@angular/material/tabs';
 import {MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
-<<<<<<< HEAD
-import {MatDialogModule} from "@angular/material"
-import { FormsModule } from '@angular/forms';
-=======
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
->>>>>>> acdf571cf86d12772ad8a846ce9deaa569d000d8
 import { AgGridModule } from 'ag-grid-angular';
 import {MatDialogModule,MatDatepickerModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule} from "@angular/material";
 import { CompanyMainComponent } from './company-main/company-main.component';
