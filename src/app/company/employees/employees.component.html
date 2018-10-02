@@ -15,7 +15,7 @@
           </tr> 
         </thead>
         <tbody>
-          <tr *ngFor="let employee of employeeList; let i = index"  [class.active]="i == selectedRow">
+          <tr *ngFor="let employee of employeeList; let i = index"  [class.active]="i == selectedRow" (click)="openDialog(i)">
             <td> {{ employee.lastName }} </td>
             <td> {{ employee.firstName }} </td>
             <td> {{ employee.employeeAliasID }} </td>
