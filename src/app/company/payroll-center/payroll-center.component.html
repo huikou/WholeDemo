@@ -15,7 +15,6 @@
         [gridOptions]="topOptions"
         [enableColResize]="true"
         (firstDataRendered)="onFirstDataRendered($event)"
-        [rowGroupPanelShow]="rowGroupPanelShow"
         [pagination]="true"
         [paginationPageSize]="paginationPageSize"
         [paginationNumberFormatter]="paginationNumberFormatter"
@@ -74,7 +73,7 @@
     [enableColResize]="true"
     (gridReady)="onGridReady1($event)"
     [gridOptions]="topOptions2"
-    (cellValueChanged)="onCellValueChanged($event)"
+   
     ></ag-grid-angular> 
 
     <ag-grid-angular
@@ -91,7 +90,7 @@
 
 </div>
 <div>
-    <button (click)="deleteSelectedRows()" [disabled]="!rowsSelected()">
+    <!-- <button (click)="deleteSelectedRows()" [disabled]="!rowsSelected()">
             Delete Selected Row
-    </button>
+    </button> -->
 </div>

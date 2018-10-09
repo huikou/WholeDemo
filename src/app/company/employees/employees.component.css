@@ -14,3 +14,13 @@
 #employees .table  tr:last-child > td{
     border-bottom: solid 1px #dee2e6; 
  } 
+
+ .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

@@ -13,27 +13,26 @@ declare var $: any;
 })
 export class PayrollCenterComponent implements OnInit {
   //topOptions: GridOptions;
-  private rowData: any[];
-  private columnDefs;
-  private paginationPageSize;
-  private paginationNumberFormatter;
-  private gridApi;
-  private gridColumnApi;
-  private gridApi2;
-  private gridColumnApi2;
+   rowData: any[];
+   columnDefs;
+   paginationPageSize;
+   paginationNumberFormatter;
+   gridApi;
+   gridColumnApi;
+   gridApi2;
+   gridColumnApi2;
 
 
-  private rowData1;
-  private columnDefs1;
-  private defaultColDef1;
+   rowData1;
+   columnDefs1;
+   defaultColDef1;
 
-  private rowData2;
-  private columnDefs2;
-  private defaultColDef2;
-  private gridApi1;
-  private detailCellRendererParams;
-  private components;
-  
+   rowData2;
+   columnDefs2;
+   defaultColDef2;
+   gridApi1;
+   detailCellRendererParams;
+   components;
 
   topOptions = {alignedGrids: []};
   bottomOptions = {alignedGrids: []};
@@ -265,8 +264,19 @@ export class PayrollCenterComponent implements OnInit {
       BasePayRate: '55',
 
     }
-];
 
+    
+];
+bottomData2=[
+  {
+    address: 4,
+    country: 3,
+    state:5,
+    city: {id: 15, name:'PA'},
+    country1: {id:3, name: 'Australian'},
+    state1: {id:5, name: 'New South Wales'},
+  }
+]
 onPageSizeChanged(newPageSize) {
   // var value = document.getElementById("page-size").value;
   // this.gridApi.paginationSetPageSize(Number(value));

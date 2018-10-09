@@ -13,7 +13,7 @@ import { CompanyListComponent } from '../company-list/company-list.component';
 export class MainComponent implements OnInit {
 
   constructor(private modalService: NgbModal) {     }
-  showModal(content) {  
+  showModal() {  
     this.modalService.open(CompanyListComponent,{ size: 'lg' } ).result.then(  
         (closeResult) => {  
             //modal close  

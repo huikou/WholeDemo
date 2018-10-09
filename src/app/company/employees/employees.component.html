@@ -1,11 +1,16 @@
 <div *ngIf="isList;else employeeDetail">
- 
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  
     <div id="employees" class="table-responsive">
-        <table class="table table-hover " >
+        <table class="table table-hover " matSort (matSortChange)="sortData($event)">
         <thead >
           <tr>
-            <th>Last Name</th>
-            <th>First Name</th>
+            <th mat-sort-header="lastName">Last Name</th>
+            <th mat-sort-header="firstName">First Name</th>
             <th>Employee Id</th>
             <th>Job Title</th>
             <th>OnBoardingProcess</th> 
@@ -29,6 +34,13 @@
         </table>
     
     </div>
-</div>
 
+<mat-paginator [length]="totalSize"
+              [pageSize]="pageSize"
+              [pageIndex]="currentPage"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              [showFirstLastButtons]="true" 
+              (page)="onPageChanged($event)">
+</mat-paginator>
+</div>
  <ng-template #employeeDetail><app-employee-detail [currentEmpl]="selectedEmpl"></app-employee-detail></ng-template>

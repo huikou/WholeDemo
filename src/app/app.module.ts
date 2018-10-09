@@ -29,16 +29,16 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     UiModule,
     DashboardModule,
     AppRoutingModule,
-    UserModule,
+    UserModule
     // CompanyModule
   ],
   providers: [NgbActiveModal, UserService,AuthGuard,
-    ,
     {
       provide : HTTP_INTERCEPTORS,
       useClass : AuthInterceptor,
       multi : true
     }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
