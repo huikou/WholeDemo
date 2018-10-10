@@ -19,6 +19,8 @@ export class SignInComponent implements OnInit {
   OnSubmit(){
     this.userService.userAuthentication(this.model.username,this.model.password).subscribe((data : any)=>{
      localStorage.setItem('userToken',data.access_token);
+     const time_to_login = Date.now() + 604800000;
+     localStorage.setItem('timer', JSON.stringify(time_to_login));
      this.router.navigate(['/layout']);
    },
    (err : HttpErrorResponse)=>{
