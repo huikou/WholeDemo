@@ -28,14 +28,14 @@
             <td> {{ employee.onboarding }} </td> 
             <td> {{ employee.statusText }} </td>
             <td> {{ employee.hireDate | date}} </td>
-            <td><a (click)="getEmployeeDetail(i)" href="javscript:void">More</a></td>            
+            <td class="iconCell"><span class="moreIcon"><a (click)="getEmployeeDetail(i)" href="javscript:void"></a></span></td>            
           </tr>
         </tbody>
         </table>
     
     </div>
 
-<mat-paginator [length]="totalSize"
+<mat-paginator #manufacturersPaginator [length]="totalSize"
               [pageSize]="pageSize"
               [pageIndex]="currentPage"
               [pageSizeOptions]="[5, 10, 25, 100]"

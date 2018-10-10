@@ -7,7 +7,8 @@
             ><mat-label>Course Description</mat-label>
             <input matInput
                     placeholder="Course Description"
-                  formControlName="description">
+                  formControlName="description" required>
+                  <mat-error>This field is required</mat-error>
             <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </div>
@@ -56,10 +57,35 @@
             
         </mat-form-field>
         </div>
+
+
 </div>
+<div formGroupName="address">
+    <h3>Address</h3>
+  
+    <label>
+      Street:
+      <input type="text" formControlName="street">
+    </label>
+  
+    <label>
+      City:
+      <input type="text" formControlName="city">
+    </label>
+    
+    <label>
+      State:
+      <input type="text" formControlName="state">
+    </label>
+  
+    <label>
+      Zip Code:
+      <input type="text" formControlName="zip">
+    </label>
+  </div>
 </mat-dialog-content>
 
 <mat-dialog-actions>
     <button class="mat-raised-button"(click)="close()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    <button class="mat-raised-button mat-primary"(click)="save()" [disabled]="!form.valid">Save</button>
 </mat-dialog-actions>

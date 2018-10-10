@@ -20,7 +20,23 @@
     padding: 8px 24px 0;
   }
 
-  .mat-form-field {
+  /* .mat-form-field {
     font-size: 14px;
     width: 100%;
+  } */
+
+  .iconCell{
+    padding-top: 0.3rem;
   }
+
+  .moreIcon:after {
+    content: '\2807';
+    font-size: 25px;
+    color:grey;
+
+    }
+
+
+  .app-employees .mat-paginator-container{
+  justify-content: flex-start;
+}

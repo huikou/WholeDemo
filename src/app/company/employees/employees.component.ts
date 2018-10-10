@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { EmployeeListService } from '../../shared/employee/employee-list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -8,7 +8,11 @@ import { EmployeePopupComponent } from './employee-popup/employee-popup.componen
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.css']
+  styleUrls: ['./employees.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    'class': 'app-employees'
+  }
 })
 export class EmployeesComponent implements OnInit {
  employeeList: any[];
@@ -21,7 +25,7 @@ export class EmployeesComponent implements OnInit {
   datasource = [];
   pageEvent: PageEvent;
   constructor(private employeeListService : EmployeeListService, private router : Router, private dialog: MatDialog) { }
-
+  @ViewChild('manufacturersPaginator')
   sortData(sort: Sort) {
     const data = this.employeeList;
     if (!sort.active || sort.direction === '') {

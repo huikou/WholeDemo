@@ -5,7 +5,7 @@ import {MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, M
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
-import {MatDialogModule,MatDatepickerModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule, MatCardModule,} from "@angular/material";
+import {MatDialogModule,MatDatepickerModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule, MatCardModule} from "@angular/material";
 import { CompanyMainComponent } from './company-main/company-main.component';
 import { AllCompanyComponent } from './all-company/all-company.component';
 import { CompanyDashComponent } from './company-dash/company-dash.component';
