@@ -5,3 +5,8 @@
 .card.empl-info-form{
     height:70vh;
 }
+
+
+.invalid-feedback{
+    display:inline-block;
+}

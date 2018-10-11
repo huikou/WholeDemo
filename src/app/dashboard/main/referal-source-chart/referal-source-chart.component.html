@@ -1,0 +1,15 @@
+<p>
+  referal-source-chart works!
+</p>
+
+<div style="display: block;">
+    <canvas
+        baseChart height="40vh" width="80vw"
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartClick)="onChartClick($event)">
+    </canvas>
+  </div>

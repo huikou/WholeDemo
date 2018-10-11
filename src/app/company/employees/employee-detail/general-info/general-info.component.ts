@@ -14,4 +14,8 @@ export class GeneralInfoComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.employee))
+  }
+
 }

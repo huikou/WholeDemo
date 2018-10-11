@@ -85,7 +85,7 @@ export class EmployeesComponent implements OnInit {
     this.isList= !this.isList;
     this.selectedEmpl=this.employeeList[i];
     this.selectedRow = i;
-    // this.router.navigate(['/layout/companyMain/employees/employeeDetail']);
+     this.router.navigate(['/layout/company/companyMain/employees/employeeDetail']);
   }
 
   iterator() {

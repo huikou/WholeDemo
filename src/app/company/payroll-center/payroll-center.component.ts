@@ -5,6 +5,9 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Response } from "@angular/http";
 import { Observable } from 'rxjs';
 import "ag-grid-enterprise";
+import { MoodEditor } from "./mood-editor.component";
+import { MoodRenderer } from "./mood-renderer.component";
+
 declare var $: any;
 @Component({
   selector: 'app-payroll-center',
@@ -342,6 +345,14 @@ onGridReady2(params) {
           return lookupKey(data, params.newValue);
         }
       },
+      {
+        headerName: "Mood",
+        field: "Gross Payd",
+        cellRendererFramework: MoodRenderer,
+        cellEditorFramework: MoodEditor,
+        editable: true,
+        // width: 300
+    },
     ];
   }
 

@@ -16,3 +16,12 @@
 #calendar{
     height: 60vh;
 }
+
+.primary-color{
+    color:lightskyblue;
+    float:right;
+}
+
+.primary-color:hover{
+ cursor:pointer;
+}

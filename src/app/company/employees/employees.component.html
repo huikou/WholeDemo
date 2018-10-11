@@ -28,7 +28,7 @@
             <td> {{ employee.onboarding }} </td> 
             <td> {{ employee.statusText }} </td>
             <td> {{ employee.hireDate | date}} </td>
-            <td class="iconCell"><span class="moreIcon"><a (click)="getEmployeeDetail(i)" href="javscript:void"></a></span></td>            
+            <td class="iconCell"><span class="moreIcon" (click)="getEmployeeDetail(i)"></span></td>            
           </tr>
         </tbody>
         </table>

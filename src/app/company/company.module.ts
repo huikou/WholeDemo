@@ -17,6 +17,8 @@ import { GeneralInfoComponent } from './employees/employee-detail/general-info/g
 import { EmploymentComponent } from './employees/employee-detail/employment/employment.component';
 import { CompanyRoutingModule } from './/company-routing.module';
 import { EmployeePopupComponent } from './employees/employee-popup/employee-popup.component';
+import { MoodEditor } from "../company/payroll-center/mood-editor.component";
+import { MoodRenderer } from "../company/payroll-center/mood-renderer.component";
 
 
 @NgModule({
@@ -30,10 +32,10 @@ import { EmployeePopupComponent } from './employees/employee-popup/employee-popu
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule,
-    [AgGridModule.withComponents(null)]
+    AgGridModule.withComponents([MoodEditor, MoodRenderer])
   ],
   declarations: [ CompanyMainComponent, AllCompanyComponent, CompanyDashComponent, EmployeesComponent,
-     PayrollCenterComponent, EmployeeDetailComponent, OverviewComponent, GeneralInfoComponent, EmploymentComponent, EmployeePopupComponent],
+     PayrollCenterComponent, EmployeeDetailComponent, OverviewComponent, GeneralInfoComponent, EmploymentComponent, EmployeePopupComponent, MoodEditor, MoodRenderer, ],
   exports:[CompanyMainComponent, AllCompanyComponent,EmployeeDetailComponent,
     CommonModule, MatButtonModule, MatToolbarModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule ],
     entryComponents: [EmployeePopupComponent]

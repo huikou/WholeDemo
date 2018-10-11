@@ -4,7 +4,7 @@ import { FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router'
-
+import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -26,6 +26,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
+    ChartsModule,
     UiModule,
     DashboardModule,
     AppRoutingModule,
