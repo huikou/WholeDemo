@@ -37,6 +37,6 @@
     }
 
 
-  .app-employees .mat-paginator-container{
+  app-employees .mat-paginator-container{
   justify-content: flex-start;
 }

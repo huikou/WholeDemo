@@ -1,5 +1,7 @@
 <h2 mat-dialog-title>{{description}}</h2>
-
+<p *ngIf="isValidFormSubmitted && form.pristine" [ngClass] = "'success'">
+        Form submitted successfully.
+    </p>
 <mat-dialog-content [formGroup]="form">
    <div class="row">
       <div class="col-md-6" >
@@ -8,7 +10,9 @@
             <input matInput
                     placeholder="Course Description"
                   formControlName="description" required>
-                  <mat-error>This field is required</mat-error>
+                  <mat-error>
+                        This is a required field.
+                </mat-error>
             <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </div>
@@ -53,8 +57,21 @@
                     formControlName="longDescription">
 
                 </textarea>
-
-            
+                <mat-error *ngIf="form.get('longDescription').hasError('required')">
+                        This is a required field.
+                </mat-error>
+                <mat-error *ngIf="form.get('longDescription').hasError('pattern')">
+                        Enter a valid name.
+                </mat-error>
+                <!-- <div *ngIf="LongDescription.errors && (isValidFormSubmitted != true || !isValidFormSubmitted)" [ngClass] = "'error'"> 
+                        <div *ngIf="LongDescription.errors.required">
+                            This is a required field.
+                        </div>  
+                        <div *ngIf="LongDescription.errors.pattern">
+                            Enter a valid name.
+                        </div> 
+                </div> -->
+               
         </mat-form-field>
         </div>
 

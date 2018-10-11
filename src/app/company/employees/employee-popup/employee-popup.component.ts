@@ -15,6 +15,9 @@ export class EmployeePopupComponent implements OnInit {
   form: FormGroup;
   description:string;
   time;
+  isValidFormSubmitted = null;
+  unamePattern = "^(?=.*[a-z]).{2}[a-zA-Z0-9\\-_]*$";
+
   constructor( private fb: FormBuilder,private dialogRef: MatDialogRef<EmployeePopupComponent>,
     @Inject(MAT_DIALOG_DATA) data, private datePipe: DatePipe) { 
       this.description = data.description;
@@ -25,7 +28,7 @@ export class EmployeePopupComponent implements OnInit {
         releasedAt: [currentDate, Validators.required],
         longDescription: new FormControl('',Validators.compose([
           Validators.required,
-          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+          Validators.pattern(this.unamePattern)
         ])),
         address: this.fb.group({
           street: [''],
@@ -41,6 +44,12 @@ export class EmployeePopupComponent implements OnInit {
   }
 
   save() {
+    this.isValidFormSubmitted = false;
+    if (this.form.invalid) {
+       return;
+    }
+    this.isValidFormSubmitted = true;
+    this.form.reset();
     this.dialogRef.close(this.form.value);
 }
 
@@ -48,4 +57,7 @@ close() {
     this.dialogRef.close();
 }
 
+get LongDescription() {
+  return this.form.get('longDescription');
+} 
 }
