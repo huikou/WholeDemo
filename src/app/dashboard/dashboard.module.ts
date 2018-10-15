@@ -15,7 +15,8 @@ import { RevenueBreakdownChartComponent } from './main/revenue-breakdown-chart/r
     MainComponent
   ],
   entryComponents: [
-    CompanyListComponent
+    CompanyListComponent,
+    ReferalSourceChartComponent
   ]
 })
 export class DashboardModule { }
