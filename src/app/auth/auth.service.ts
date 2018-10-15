@@ -1,38 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
+import { User } from '../shared/user.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const TOKEN_NAME='userToken';
+const TOKEN_ExpiredTime='tokenTimer'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  readonly authUrl = 'https://apidev.employerondemand.com/OAuth';
 
-  constructor(private router: Router) { }
-  // getToken(): string {
-  //   return localStorage.getItem(TOKEN_NAME);
-  // }
+  constructor(private router: Router, private http: HttpClient) { }
 
-  // setToken(token: string): void {
-  //   localStorage.setItem(TOKEN_NAME, token);
-  // }
+  getToken(): string {
+    return localStorage.getItem(TOKEN_NAME);
+  }
 
-  // getTokenExpirationDate(token: string): Date {
-  //   const decoded = jwt_decode(token);
+  setToken(token: any): void {
+    localStorage.setItem(TOKEN_NAME, token.access_token);
+    var now = Math.floor(Date.now()/1000);
+    const time_to_login = now + token.expires_in - 1200;
+    localStorage.setItem(TOKEN_ExpiredTime, JSON.stringify(time_to_login));
+  }
 
-  //   if (decoded.exp === undefined) return null;
-
-  //   const date = new Date(0); 
-  //   date.setUTCSeconds(decoded.exp);
-  //   return date;
-  // }
+  getTokenExpirationDate(token: string): any {
+  }
 
   isTokenExpired(token?: string): boolean {
-    // if(!token) token = this.getToken();
-    // if(!token) return true;
-    const timer = JSON.parse(localStorage.getItem('timer'));
-    if (timer && (Date.now() > timer)) {
+    if(!token) token = this.getToken();
+    if(!token) return true;
+    const timer = JSON.parse(localStorage.getItem(TOKEN_ExpiredTime));
+    if(!timer) return true;
+    var now = Math.floor(Date.now()/1000);
+    if (timer && (now > timer)) {
       return true;
-     // this.logout();
-     // this.router.navigate(['/login']);
     }
     else{
       return false;
@@ -44,7 +47,7 @@ export class AuthService {
 
 
   isLoggedIn() {
-    if (localStorage.getItem('userToken') == null || this.isTokenExpired()) {
+    if (localStorage.getItem(TOKEN_NAME) == null || this.isTokenExpired()) {
       return false;
     }
     return true;
@@ -52,10 +55,34 @@ export class AuthService {
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('userToken');
+    localStorage.removeItem(TOKEN_NAME);
+    localStorage.removeItem(TOKEN_ExpiredTime);
     this.router.navigateByUrl('/login');
   }
 
+  
+  registerUser(user: User) {
+    const body: User = {
+      UserName: user.UserName,
+      Password: user.Password,
+      Email: user.Email,
+      FirstName: user.FirstName,
+      LastName: user.LastName
+    }
+    var reqHeader = new HttpHeaders({'No-Auth':'True'});
+    return this.http.post(this.authUrl + '/api/User/Register', body,{headers : reqHeader});
+  }
+
+  userAuthentication(userName, password) {
+    var data = "username=" + userName + "&password=" + password + "&grant_type=password";
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True',
+                        "Authorization" : "Basic QmlnWWVsbG93OlBheW1lMkFCRw==",
+                        "Accept": "application/json"});
+                        
+    return this.http.post(this.authUrl + '/token', 
+              'grant_type=client_credentials', 
+              { headers: reqHeader });
+  }
 
 
 }
