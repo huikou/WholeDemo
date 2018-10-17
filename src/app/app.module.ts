@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router'
+import {NgbModule, NgbActiveModal, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
@@ -26,6 +25,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
+    NgbModalModule,
     ChartsModule,
     UiModule,
     DashboardModule,

@@ -13,7 +13,7 @@ const routes: Routes = [
   { path : '', redirectTo:'/login', pathMatch : 'full'},
   { 
     path: 'layout', component: LayoutComponent ,
-    children: [{path: 'dashboard', component: MainComponent, canActivate:[AuthGuard] },
+    children: [{path: 'dashboard', component: MainComponent,  },
                {path: '', redirectTo:'dashboard', pathMatch : 'full'},
                {
                 path: "company",

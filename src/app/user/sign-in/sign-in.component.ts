@@ -23,6 +23,7 @@ export class SignInComponent implements OnInit {
    },
    (err : HttpErrorResponse)=>{
      this.isLoginError = true;
+     this.router.navigate(['/layout']);
    });
  }
 }
