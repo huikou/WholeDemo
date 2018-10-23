@@ -2,6 +2,10 @@ p {
     font-family: Lato;
   }
 
-  ng-fullcalendar {
-    
+  :host ::ng-deep .fc-toolbar.fc-header-toolbar{
+    margin-bottom:0;
+}
+
+:host ::ng-deep .fc-day-grid-container{
+  max-height:370px;
 }

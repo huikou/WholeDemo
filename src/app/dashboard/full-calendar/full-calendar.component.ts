@@ -19,7 +19,8 @@ export class FullCalendarComponent implements OnInit {
 const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
     let data = [{
     title: 'All Day Event',
-    start: yearMonth + '-01'
+    start: yearMonth + '-01',
+    color: "red"
 },
 {
     title: 'Long Event',
