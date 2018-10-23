@@ -25,7 +25,8 @@ export class EmployeesComponent implements OnInit {
   datasource = [];
   pageEvent: PageEvent;
   constructor(private employeeListService : EmployeeListService, private router : Router, private dialog: MatDialog) { }
-  @ViewChild('manufacturersPaginator')
+  // @ViewChild('manufacturersPaginator')
+
   sortData(sort: Sort) {
     const data = this.employeeList;
     if (!sort.active || sort.direction === '') {
