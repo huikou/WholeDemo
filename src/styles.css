@@ -6,7 +6,7 @@
 @import 'ag-grid/dist/styles/ag-theme-balham.css';
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
-
+@import "~fullcalendar/dist/fullcalendar.min.css";
 body { 
   font-family: Roboto, Arial, sans-serif;
   margin: 0;

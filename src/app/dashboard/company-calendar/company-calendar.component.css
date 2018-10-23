@@ -7,14 +7,14 @@ h3 {
     padding: 15px;
   }
 
-  .cal-day-view .cal-hour-rows{
+  .cal-day-view {
       height:500px;
       overflow-y:scroll;
   }
 
-  app-company-calendar .cal-week-view .cal-time-events{
-    height:500px;
-    overflow-y:scroll;
+  :host ::ng-deep .cal-week-view {
+    height:500px !important;
+    overflow-y:scroll !important;
   }
 
   .cal-day-cell {

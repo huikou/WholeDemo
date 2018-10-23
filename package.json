@@ -35,6 +35,8 @@
     "date-fns": "^1.29.0",
     "flatpickr": "^4.5.2",
     "font-awesome": "^4.7.0",
+    "fullcalendar": "^3.6.1",
+    "ng-fullcalendar": "^1.6.2",
     "ng2-charts": "^1.6.0",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"

@@ -9,8 +9,10 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import {NgbModule, NgbActiveModal, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import { FullCalendarModule } from 'ng-fullcalendar';
 import { RevenueBreakdownChartComponent } from './main/revenue-breakdown-chart/revenue-breakdown-chart.component';
 import { CompanyCalendarComponent } from './company-calendar/company-calendar.component';
+import { FullCalendarComponent } from './full-calendar/full-calendar.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,8 +24,9 @@ import { CompanyCalendarComponent } from './company-calendar/company-calendar.co
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
+    FullCalendarModule,
   ],
-  declarations: [MainComponent, CompanyListComponent,ReferalSourceChartComponent, RevenueBreakdownChartComponent, CompanyCalendarComponent],
+  declarations: [MainComponent, CompanyListComponent,ReferalSourceChartComponent, RevenueBreakdownChartComponent, CompanyCalendarComponent, FullCalendarComponent],
   exports: [
     MainComponent
   ],
