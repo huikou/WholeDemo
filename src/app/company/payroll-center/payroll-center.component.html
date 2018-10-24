@@ -73,7 +73,7 @@
     [enableColResize]="true"
     (gridReady)="onGridReady1($event)"
     [gridOptions]="topOptions2"
-   
+    (cellValueChanged)="updateRateTotal($event)"
     ></ag-grid-angular> 
 
     <ag-grid-angular
