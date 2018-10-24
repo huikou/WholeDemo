@@ -382,7 +382,9 @@ export class PayrollCenterComponent implements OnInit {
         field: "rate",
         width:100,
         editable: true,
-        valueSetter: numberValueSetter
+        valueSetter: function(params:any){
+            
+        }
       }
     ]
 
@@ -503,7 +505,7 @@ onGridReady2(params) {
     if(params.column.colId=='rate'){
     this.gridApi1.forEachNode( function(rowNode, index) {
       sum= sum + parseFloat(rowNode.data.rate) ;
-      });
+      });                                         
       var index=this.gridApi2.getFirstDisplayedRow();
       //var rowNode = this.gridApi.getDisplayedRowAtIndex(0);
       var rowNode = this.gridApi2.getRowNode(index);
