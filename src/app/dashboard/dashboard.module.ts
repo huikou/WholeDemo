@@ -13,6 +13,7 @@ import { FullCalendarModule } from 'ng-fullcalendar';
 import { RevenueBreakdownChartComponent } from './main/revenue-breakdown-chart/revenue-breakdown-chart.component';
 import { CompanyCalendarComponent } from './company-calendar/company-calendar.component';
 import { FullCalendarComponent } from './full-calendar/full-calendar.component';
+import { DisableIfUnauthorizedDirective } from '../auth/disable-if-unauthorized.directive';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +27,8 @@ import { FullCalendarComponent } from './full-calendar/full-calendar.component';
     }),
     FullCalendarModule,
   ],
-  declarations: [MainComponent, CompanyListComponent,ReferalSourceChartComponent, RevenueBreakdownChartComponent, CompanyCalendarComponent, FullCalendarComponent],
+  declarations: [MainComponent, CompanyListComponent,ReferalSourceChartComponent, DisableIfUnauthorizedDirective,
+    RevenueBreakdownChartComponent, CompanyCalendarComponent, FullCalendarComponent],
   exports: [
     MainComponent
   ],

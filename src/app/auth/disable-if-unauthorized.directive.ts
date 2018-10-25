@@ -8,7 +8,7 @@ import { AuthGroup } from './roleRights.types';
 })
 export class DisableIfUnauthorizedDirective {
 
-  @Input('myDisableIfUnauthorized') permission: AuthGroup; // Required permission passed in
+  @Input('appDisableIfUnauthorized') permission: AuthGroup; // Required permission passed in
   constructor(private el: ElementRef, private authorizationService: UserRoleService) { }
   ngOnInit() {
       if (!this.authorizationService.hasPermission(this.permission)) {
