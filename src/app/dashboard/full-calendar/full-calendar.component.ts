@@ -80,7 +80,8 @@ const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
           center: 'title',
           right: 'month,agendaWeek,agendaDay,listMonth'
         },
-        events: data
+        events: data,
+        contentHeight: 'auto',
       };
   }
  
