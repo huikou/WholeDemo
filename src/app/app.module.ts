@@ -13,11 +13,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { DisableIfUnauthorizedDirective } from './auth/disable-if-unauthorized.directive';
 //import { CompanyModule } from './company/company.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisableIfUnauthorizedDirective
   ],
   imports: [
     BrowserModule,

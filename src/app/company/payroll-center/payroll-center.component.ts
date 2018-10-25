@@ -36,7 +36,7 @@ export class PayrollCenterComponent implements OnInit {
    gridApi1;
    detailCellRendererParams;
    components;
-
+   columnDefs22;
   topOptions = {alignedGrids: []};
   bottomOptions = {alignedGrids: []};
 
@@ -107,7 +107,8 @@ export class PayrollCenterComponent implements OnInit {
         state:1,
         city: {id: 1, name:'NY'},
         country1: {id:1, name: 'Indian'},
-        state1:{id :1,name:'Andhra Pradesh'}
+        state1:{id :1,name:'Andhra Pradesh'},
+        rate:1
       },
       {
         address: 2,
@@ -115,7 +116,8 @@ export class PayrollCenterComponent implements OnInit {
         state:2,
         city: {id: 5, name:'LA'},
         country1: {id:1, name: 'Indian'},
-        state1:{id:2, name: 'Madhya Pradesh'}
+        state1:{id:2, name: 'Madhya Pradesh'},
+        rate:2
       },
       {
         address: 3,
@@ -123,15 +125,17 @@ export class PayrollCenterComponent implements OnInit {
         state:3,
         city: {id: 9, name:'SC'},
         country1: {id:2, name: 'USA'},
-        state1: {id:3, name: 'San Francisco'}
+        state1: {id:3, name: 'San Francisco'},
+        rate:3
       },
       {
         address: 4,
         country: 3,
         state:5,
-        city: {id: 15, name:'PA'},
-        country1: {id:3, name: 'Australian'},
-        state1: {id:5, name: 'New South Wales'},
+        city: {},
+        country1: {},
+        state1: {},
+        rate:5
       }
     ];
 
@@ -139,12 +143,14 @@ export class PayrollCenterComponent implements OnInit {
       {
         field: 'name',
         editable: true,
-        checkboxSelection: true
+        checkboxSelection: true,
+        width: 100,
       },
       {
         headerName: "Address",
         field: "address",
-    
+        width: 100,
+        valueFormatter:currencyFormatter
       },
       {
         headerName: "Country",
@@ -169,6 +175,7 @@ export class PayrollCenterComponent implements OnInit {
            var rowNode = this.gridApi.getRowNode(params.data.address);
            rowNode.setDataValue("state", 0);
         },
+        width: 100,
       },
       {
         headerName: "State",
@@ -177,7 +184,7 @@ export class PayrollCenterComponent implements OnInit {
         cellEditorParams: function(params) {
           var selectedCountry = params.data.country;
           var states=getStates();
-          var value=extractValues2(states.filter(x=>{return x.country_id==selectedCountry}));
+          var value=extractValues2(states.filter(x=>{return x.id==selectedCountry}));
 
           return {values:value};
         },
@@ -187,6 +194,135 @@ export class PayrollCenterComponent implements OnInit {
         valueParser: function(params) {
           return lookupKey2(getStates(), params.newValue);
         },
+        width: 100,
+      },
+      {
+        headerName: "city",
+        field: "city",
+        width:100,
+        cellRenderer: (params) => params.data.city.name,
+        editable: true,
+        cellEditor: 'agRichSelectCellEditor',
+        cellEditorParams: {
+          cellHeight: 50,
+            values: getCity(),
+            cellRenderer: (params) => params.value.name
+        },
+      },
+      {
+        headerName: "country 1",
+        field: "country1",
+        width:100,
+        cellRenderer: (params) => params.data.country1.name,
+        editable: true,
+        cellEditor: 'agRichSelectCellEditor',
+        cellEditorParams: {
+          cellHeight: 50,
+            values: getCountries(),
+            cellRenderer: (params) => params.value.name
+        },
+        onCellValueChanged: function (params: any) {
+          var selectedCountry = params.data.country1.id;
+          var selectedCity = params.data.state1.id;
+          var allowedStates = getStates().filter(x=>{return x.id==selectedCountry});
+          var cityMismatch = allowedStates.indexOf(selectedCity) < 0;
+          if (cityMismatch) {
+            params.node.setDataValue("state1", {id:-1,name:'-select-'});
+          }
+        }
+      },
+      {
+        headerName: "state1",
+        field: "state1",
+        width:100,
+        cellRenderer: (params) => params.data.state1.name,
+        editable: true,
+        cellEditor: 'agRichSelectCellEditor',
+        cellEditorParams: function(params) {
+        var allowedStates=getStates().filter(x=>{return x.id==params.data.country1.id});
+        return{
+          cellHeight: 30,
+            values: allowedStates,
+            formatValue:  function(value) {
+              return value.name;
+            }
+         }
+        }
+      },
+      {
+        headerName: "rate",
+        field: "rate",
+        width:100,
+        editable: true,
+        valueSetter: numberValueSetter,
+        onCellValueChanged: function(params){
+          // var sum=0;
+          // this.gridApi1.forEachNode( function(rowNode, index) {
+          //   sum= sum + rowNode.data.rate ;
+          //   });
+          //   var index=this.gridApi2.getFirstDisplayedRow();
+          //   //var rowNode = this.gridApi.getDisplayedRowAtIndex(0);
+          //   var rowNode = this.gridApi2.getRowNode(index);
+          //   rowNode.setDataValue('rate', sum);
+        
+        }
+      }
+    ];
+    this.columnDefs22 = [
+      {
+        field: 'name',
+        editable: true,
+        checkboxSelection: false,
+        width: 100,
+      },
+      {
+        headerName: "Address",
+        field: "address",
+        width: 100,
+      },
+      {
+        headerName: "Country",
+        field: "country",
+        cellEditor: "select",
+        cellEditorParams:  {
+          values: extractValues2(getCountries()),
+          cellHeight: 50,
+        },
+        valueFormatter: function(params) {
+          return lookupValue2(getCountries(), params.value);
+        },
+        valueParser: function(params) {
+          return lookupKey2(getCountries(), params.newValue);
+        },
+        onCellValueChanged: function (params: any) {
+          /**
+           * because 'select' does not offer us the possibility to use 'key-value' as traditional,
+           * we will use only values in 'select' and changed to 'id' when will be saved.
+           */
+           params.data.state=3;;
+           var rowNode = this.gridApi.getRowNode(params.data.address);
+           rowNode.setDataValue("state", 0);
+        },
+        width: 100,
+      },
+      {
+        headerName: "State",
+        field: "state",
+        cellEditor: "select",
+        cellEditorParams: function(params) {
+          var selectedCountry = params.data.country;
+          var states=getStates();
+          var value=extractValues2(states.filter(x=>{return x.id==selectedCountry}));
+
+          return {values:value};
+        },
+        valueFormatter: function(params) {
+          return lookupValue2(getStates(), params.value);
+        },
+        valueParser: function(params) {
+          return lookupKey2(getStates(), params.newValue);
+        },
+        width: 100,
       },
       {
         headerName: "city",
@@ -216,7 +352,7 @@ export class PayrollCenterComponent implements OnInit {
         onCellValueChanged: function (params: any) {
           var selectedCountry = params.data.country1.id;
           var selectedCity = params.data.state1.id;
-          var allowedStates = getStates().filter(x=>{return x.country_id==selectedCountry});
+          var allowedStates = getStates().filter(x=>{return x.id==selectedCountry});
           var cityMismatch = allowedStates.indexOf(selectedCity) < 0;
           if (cityMismatch) {
             params.node.setDataValue("state1", {id:-1,name:'-select-'});
@@ -231,7 +367,7 @@ export class PayrollCenterComponent implements OnInit {
         editable: true,
         cellEditor: 'agRichSelectCellEditor',
         cellEditorParams: function(params) {
-        var allowedStates=getStates().filter(x=>{return x.country_id==params.data.country1.id});
+        var allowedStates=getStates().filter(x=>{return x.id==params.data.country1.id});
         return{
           cellHeight: 30,
             values: allowedStates,
@@ -246,7 +382,9 @@ export class PayrollCenterComponent implements OnInit {
         field: "rate",
         width:100,
         editable: true,
-
+        valueSetter: function(params:any){
+            
+        }
       }
     ]
 
@@ -272,12 +410,14 @@ export class PayrollCenterComponent implements OnInit {
 ];
 bottomData2=[
   {
-    address: 4,
-    country: 3,
-    state:5,
-    city: {id: 15, name:'PA'},
-    country1: {id:3, name: 'Australian'},
-    state1: {id:5, name: 'New South Wales'},
+    name: 'Total',
+    address: '',
+    country: '',
+    state:'',
+    city: {},
+    country1: {},
+    state1: {},
+    rate:7
   }
 ]
 onPageSizeChanged(newPageSize) {
@@ -359,6 +499,19 @@ onGridReady2(params) {
   rowsSelected() {
     return this.gridApi1 && this.gridApi1.getSelectedRows().length > 0;
 }
+
+  updateRateTotal(params){
+    var sum=0;
+    if(params.column.colId=='rate'){
+    this.gridApi1.forEachNode( function(rowNode, index) {
+      sum= sum + parseFloat(rowNode.data.rate) ;
+      });                                         
+      var index=this.gridApi2.getFirstDisplayedRow();
+      //var rowNode = this.gridApi.getDisplayedRowAtIndex(0);
+      var rowNode = this.gridApi2.getRowNode(index);
+      rowNode.setDataValue('rate', sum);
+    }
+  }
 }
 var carMappings = {
   tyt: "Toyota",
@@ -421,18 +574,19 @@ function lookupKey(array, name) {
 // function colorCellRenderer(params) {
 //   return "<span style='color:" + removeSpaces(params.valueFormatted) + "'>" + params.valueFormatted + "</span>";
 // }
-// function currencyFormatter(params) {
-//   var value = Math.floor(params.value);
-//   if (isNaN(value)) return "";
-//   return "\xA3" + value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-// }
-// function numberValueSetter(params) {
-//   if (isNaN(parseFloat(params.newValue)) || !isFinite(params.newValue)) {
-//     return false;
-//   }
-//   params.data.price = params.newValue;
-//   return true;
-// }
+function currencyFormatter(params) {
+  var value = Math.floor(params.value);
+  if (isNaN(value)) return "";
+  return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+ // return "\xA3" + value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+}
+function numberValueSetter(params) {
+  if (isNaN(parseFloat(params.newValue)) || !isFinite(params.newValue)) {
+    return false;
+  }
+   params.data.rate = params.newValue;
+   return true;
+ }
 // function removeSpaces(str) {
 //   return str ? str.replace(/\s/g, "") : str;
 // }
