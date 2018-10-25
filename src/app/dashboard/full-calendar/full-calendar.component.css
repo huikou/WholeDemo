@@ -2,10 +2,13 @@ p {
     font-family: Lato;
   }
 
+
+
   :host ::ng-deep .fc-toolbar.fc-header-toolbar{
     margin-bottom:0;
 }
 
+
 :host ::ng-deep .fc-day-grid-container{
-  max-height:370px;
+  height: 80%;
 }
