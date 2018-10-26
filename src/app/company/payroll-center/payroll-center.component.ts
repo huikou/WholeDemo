@@ -271,7 +271,7 @@ export class PayrollCenterComponent implements OnInit {
     this.columnDefs22 = [
       {
         field: 'name',
-        editable: true,
+        editable: false,
         checkboxSelection: false,
         width: 100,
       },
@@ -279,112 +279,43 @@ export class PayrollCenterComponent implements OnInit {
         headerName: "Address",
         field: "address",
         width: 100,
+        editable: false,
       },
       {
         headerName: "Country",
         field: "country",
-        cellEditor: "select",
-        cellEditorParams:  {
-          values: extractValues2(getCountries()),
-          cellHeight: 50,
-        },
-        valueFormatter: function(params) {
-          return lookupValue2(getCountries(), params.value);
-        },
-        valueParser: function(params) {
-          return lookupKey2(getCountries(), params.newValue);
-        },
-        onCellValueChanged: function (params: any) {
-          /**
-           * because 'select' does not offer us the possibility to use 'key-value' as traditional,
-           * we will use only values in 'select' and changed to 'id' when will be saved.
-           */
-           params.data.state=3;;
-           var rowNode = this.gridApi.getRowNode(params.data.address);
-           rowNode.setDataValue("state", 0);
-        },
         width: 100,
+        editable: false,
       },
       {
         headerName: "State",
         field: "state",
-        cellEditor: "select",
-        cellEditorParams: function(params) {
-          var selectedCountry = params.data.country;
-          var states=getStates();
-          var value=extractValues2(states.filter(x=>{return x.id==selectedCountry}));
-
-          return {values:value};
-        },
-        valueFormatter: function(params) {
-          return lookupValue2(getStates(), params.value);
-        },
-        valueParser: function(params) {
-          return lookupKey2(getStates(), params.newValue);
-        },
         width: 100,
+        editable: false,
       },
       {
         headerName: "city",
         field: "city",
         width:100,
-        cellRenderer: (params) => params.data.city.name,
-        editable: true,
-        cellEditor: 'agRichSelectCellEditor',
-        cellEditorParams: {
-          cellHeight: 50,
-            values: getCity(),
-            cellRenderer: (params) => params.value.name
-        }
+        editable: false,
       },
       {
         headerName: "country 1",
         field: "country1",
         width:100,
-        cellRenderer: (params) => params.data.country1.name,
-        editable: true,
-        cellEditor: 'agRichSelectCellEditor',
-        cellEditorParams: {
-          cellHeight: 50,
-            values: getCountries(),
-            cellRenderer: (params) => params.value.name
-        },
-        onCellValueChanged: function (params: any) {
-          var selectedCountry = params.data.country1.id;
-          var selectedCity = params.data.state1.id;
-          var allowedStates = getStates().filter(x=>{return x.id==selectedCountry});
-          var cityMismatch = allowedStates.indexOf(selectedCity) < 0;
-          if (cityMismatch) {
-            params.node.setDataValue("state1", {id:-1,name:'-select-'});
-          }
-        }
+        editable: false,
       },
       {
         headerName: "state1",
         field: "state1",
         width:100,
-        cellRenderer: (params) => params.data.state1.name,
-        editable: true,
-        cellEditor: 'agRichSelectCellEditor',
-        cellEditorParams: function(params) {
-        var allowedStates=getStates().filter(x=>{return x.id==params.data.country1.id});
-        return{
-          cellHeight: 30,
-            values: allowedStates,
-            formatValue:  function(value) {
-              return value.name;
-            }
-         }
-        }
+        editable: false,
       },
       {
         headerName: "rate",
         field: "rate",
         width:100,
         editable: true,
-        valueSetter: function(params:any){
-            
-        }
       }
     ]
 
@@ -414,10 +345,10 @@ bottomData2=[
     address: '',
     country: '',
     state:'',
-    city: {},
-    country1: {},
-    state1: {},
-    rate:7
+    city: '',
+    country1: '',
+    state1: '',
+    rate:''
   }
 ]
 onPageSizeChanged(newPageSize) {

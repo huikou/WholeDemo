@@ -21,7 +21,7 @@ export class AuthService {
   setToken(token: any): void {
     localStorage.setItem(TOKEN_NAME, token.access_token);
     var now = Math.floor(Date.now()/1000);
-    const time_to_login = now + token.expires_in - 1200;
+    const time_to_login = now + token.expires_in - 200;
     localStorage.setItem(TOKEN_ExpiredTime, JSON.stringify(time_to_login));
   }
 

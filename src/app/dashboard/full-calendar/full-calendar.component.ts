@@ -25,17 +25,20 @@ const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
 {
     title: 'Long Event',
     start: yearMonth + '-07',
-    end: yearMonth + '-10'
+    end: yearMonth + '-10',
+    backgroundColor:"lightskyblue"
 },
 {
     id: 999,
     title: 'Repeating Event',
-    start: yearMonth + '-09T16:00:00'
+    start: yearMonth + '-09T16:00:00',
+    backgroundColor:"mediumpurple"
 },
 {
     id: 999,
     title: 'Repeating Event',
-    start: yearMonth + '-16T16:00:00'
+    start: yearMonth + '-16T16:00:00',
+    backgroundColor:"greenyellow"
 },
 {
     title: 'Conference',
