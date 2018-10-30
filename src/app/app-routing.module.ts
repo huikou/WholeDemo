@@ -7,13 +7,16 @@ import { UserComponent } from './user/user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { LayoutComponent } from './ui/layout/layout.component';
-
+import { CompanySetupComponent } from './shared-module/company-setup/company-setup.component';
 
 const routes: Routes = [
   { path : '', redirectTo:'/login', pathMatch : 'full'},
   { 
     path: 'layout', component: LayoutComponent ,
-    children: [{path: 'dashboard', component: MainComponent,  },
+    children: [{path: 'dashboard', component: MainComponent, children:[
+      {path: 'companySetup', component: CompanySetupComponent, canActivate:[AuthGuard]}
+      ]  },
+
                {path: '', redirectTo:'dashboard', pathMatch : 'full'},
                {
                 path: "company",

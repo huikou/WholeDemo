@@ -6,6 +6,8 @@ import {
 import { CompanyListComponent } from '../company-list/company-list.component';
 import { ReferalSourceChartComponent } from './referal-source-chart/referal-source-chart.component';
 import { AuthGroup } from 'src/app/auth/roleRights.types';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -13,7 +15,8 @@ import { AuthGroup } from 'src/app/auth/roleRights.types';
 })
 export class MainComponent implements OnInit {
   view:AuthGroup='VIEW_ONLY';
-  constructor(private modalService: NgbModal) {     }
+  isMain:boolean=true;
+  constructor(private modalService: NgbModal, private router : Router) {     }
   showModal() {  
     this.modalService.open(CompanyListComponent,{ size: 'lg' } ).result.then(  
         (closeResult) => {  
@@ -53,5 +56,8 @@ export class MainComponent implements OnInit {
             }  
         })  
     }  
-
+  addCompany(){
+      this.isMain=false;
+      this.router.navigate(['/layout/dashboard/companySetup']);
+  }
 }
