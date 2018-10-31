@@ -13,11 +13,17 @@ const routes: Routes = [
   { path : '', redirectTo:'/login', pathMatch : 'full'},
   { 
     path: 'layout', component: LayoutComponent ,
-    children: [{path: 'dashboard', component: MainComponent, children:[
-      {path: 'companySetup', component: CompanySetupComponent, canActivate:[AuthGuard]}
-      ]  },
+    children: [
+              // {path: 'dashboard', component: MainComponent,
+              //  children:[
+              //     {path: 'companySetup', component: CompanySetupComponent, canActivate:[AuthGuard]}
+              //   ]  },
 
                {path: '', redirectTo:'dashboard', pathMatch : 'full'},
+               {
+                path: "dashboard",
+                loadChildren: "../app/dashboard/dashboard.module#DashboardModule"
+                },
                {
                 path: "company",
                 loadChildren: "../app/company/company.module#CompanyModule"

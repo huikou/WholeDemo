@@ -58,6 +58,6 @@ export class MainComponent implements OnInit {
     }  
   addCompany(){
       this.isMain=false;
-      this.router.navigate(['/layout/dashboard/companySetup']);
+      //this.router.navigate(['/layout/dashboard/companySetup']);
   }
 }

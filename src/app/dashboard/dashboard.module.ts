@@ -15,6 +15,7 @@ import { CompanyCalendarComponent } from './company-calendar/company-calendar.co
 import { FullCalendarComponent } from './full-calendar/full-calendar.component';
 import { DisableIfUnauthorizedDirective } from '../auth/disable-if-unauthorized.directive';
 import {SharedModuleModule} from '../shared-module/shared-module.module';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {SharedModuleModule} from '../shared-module/shared-module.module';
       useFactory: adapterFactory
     }),
     FullCalendarModule,
-    SharedModuleModule
+    SharedModuleModule,
+    DashboardRoutingModule
   ],
   declarations: [MainComponent, CompanyListComponent,ReferalSourceChartComponent, DisableIfUnauthorizedDirective,
     RevenueBreakdownChartComponent, CompanyCalendarComponent, FullCalendarComponent],
