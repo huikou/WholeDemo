@@ -19,7 +19,7 @@ import { CompanyRoutingModule } from './/company-routing.module';
 import { EmployeePopupComponent } from './employees/employee-popup/employee-popup.component';
 import { MoodEditor } from "../company/payroll-center/mood-editor.component";
 import { MoodRenderer } from "../company/payroll-center/mood-renderer.component";
-
+import {SharedModuleModule} from '../shared-module/shared-module.module';
 
 @NgModule({
   imports: [
@@ -32,7 +32,8 @@ import { MoodRenderer } from "../company/payroll-center/mood-renderer.component"
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule,
-    AgGridModule.withComponents([MoodEditor, MoodRenderer])
+    AgGridModule.withComponents([MoodEditor, MoodRenderer]),
+    SharedModuleModule
   ],
   declarations: [ CompanyMainComponent, AllCompanyComponent, CompanyDashComponent, EmployeesComponent,
      PayrollCenterComponent, EmployeeDetailComponent, OverviewComponent, GeneralInfoComponent, EmploymentComponent, EmployeePopupComponent, MoodEditor, MoodRenderer, ],
