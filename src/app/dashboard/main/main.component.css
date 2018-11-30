@@ -29,3 +29,10 @@
 .primary-color:hover{
  cursor:pointer;
 }
+.fa-heart {
+    color: #ccc;
+}
+
+.fa-heart.active {
+    color: deeppink;
+}

@@ -6,9 +6,20 @@
         <i class="material-icons">error</i> Incorrect username or password
       </div>
       <form class="form-signin" #loginForm="ngForm"  (ngSubmit)="OnSubmit()">
-        <div class="form-group">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" [(ngModel)]="model.username" id="inputEmail" name="inputEmail" placeholder="Email">
+           <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Email" name="email" [(ngModel)]="model.username">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Password" name="password" [(ngModel)]="model.password">
+          </mat-form-field>
+          <mat-form-field>
+              <input matCheckBox placeholder="Remember Me" name="RememberMe">
+          </mat-form-field>
+          </div> 
+        <!-- <div class="form-group">
+            <label for="inputEmail">Email</label> -->
+            <!-- <input type="email" class="form-control" [(ngModel)]="model.username" id="inputEmail" name="inputEmail" placeholder="Email">
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
@@ -17,8 +28,8 @@
         <div class="checkbox">
             <label><input type="checkbox"> Remember me</label>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
+        <button type="submit" class="btn btn-primary">Login</button> -->
+      </form> 
       <a href="#" class="forgot-password">
         Forgot the password?
         </a>

@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit {
   view:AuthGroup='VIEW_ONLY';
   isMain:boolean=true;
+  isActive:boolean=true;
   constructor(private modalService: NgbModal, private router : Router) {     }
   showModal() {  
     this.modalService.open(CompanyListComponent,{ size: 'lg' } ).result.then(  
@@ -59,5 +60,9 @@ export class MainComponent implements OnInit {
   addCompany(){
       this.isMain=false;
       //this.router.navigate(['/layout/dashboard/companySetup']);
+  }
+
+  onClick() {
+    this.isActive = !this.isActive;
   }
 }
