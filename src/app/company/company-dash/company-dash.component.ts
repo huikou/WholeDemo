@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./company-dash.component.css']
 })
 export class CompanyDashComponent implements OnInit {
-
+showDashboard: boolean=true;
   constructor() { }
 
   ngOnInit() {
   }
+
+  editCompany(){
+    this.showDashboard=false;
+    //this.router.navigate(['/layout/dashboard/companySetup']);
+}
 
 }

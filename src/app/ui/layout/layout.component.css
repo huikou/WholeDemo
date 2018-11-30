@@ -40,7 +40,10 @@
       width:100%;
   }
 
-  
+  .navbar .navbar-nav  .active-link {
+    color: #555;
+    background-color: grey;
+  }
   @media (max-width: 768px) {
     #sidebar {
         margin-left: -80px;

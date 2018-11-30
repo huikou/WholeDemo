@@ -4,15 +4,15 @@
     <nav class="navbar bg-light navbar-right " id="sidebar" [ngClass]="{ 'active': navbarOpen }">
           
           <!-- Links -->
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" >
             <a class="navbar-brand" href="#"><img src="assets/images/ApexLogoBlue.png" /></a>
-    <li class="nav-item">
-        <a class="nav-link" routerLink="dashboard"><img src="assets/images/Apex/Home.png" /></a>
+    <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" routerLink="dashboard" routerLinkActive="active-link" ><img src="assets/images/Apex/Home.png" /></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" routerLink="company"><img src="assets/images/Apex/SBO32.png" /></a>
+    <li class="nav-item" >
+        <a class="nav-link" routerLink="company" routerLinkActive="active-link"><img src="assets/images/Apex/SBO32.png" /></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" >
         <a class="nav-link" href="#"><img src="assets/images/Apex/Eftps32.png" /></a>
     </li>
     </ul>
