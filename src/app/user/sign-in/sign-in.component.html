@@ -5,13 +5,18 @@
       <div *ngIf="isLoginError" class="red-text center error-message">
         <i class="material-icons">error</i> Incorrect username or password
       </div>
-      <form class="form-signin" #loginForm="ngForm"  (ngSubmit)="OnSubmit()">
+      <!-- <form class="form-signin" #loginForm="ngForm"  (ngSubmit)="OnSubmit()"> -->
+       <form [formGroup]="loginForm" (ngSubmit)="OnSubmit()">
            <div class="example-container">
           <mat-form-field>
-            <input matInput placeholder="Email" name="email" [(ngModel)]="model.username">
+            <input matInput placeholder="Email" name="email" [formControl]="email" required>
+            <mat-error *ngFor="let validation of account_validation_messages.email">
+                <mat-error class="error-message" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</mat-error>
+              </mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Password" name="password" [(ngModel)]="model.password">
+            <input matInput placeholder="Password" name="password" [formControl]="password" required>
+
           </mat-form-field>
           <mat-form-field>
               <input matCheckBox placeholder="Remember Me" name="RememberMe">
@@ -33,6 +38,7 @@
       <a href="#" class="forgot-password">
         Forgot the password?
         </a>
+        <button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!loginForm.valid">Submit</button>
       </div>
   </div>
 </div>

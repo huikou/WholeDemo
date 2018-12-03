@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import {AppMaterialModule} from '../shared-module/app-material/app-material.module';
 import { UserComponent } from './user/user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -12,10 +12,11 @@ import { MatFormFieldModule, MatSelectModule, MatInputModule } from '@angular/ma
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AppMaterialModule,
-    MatFormFieldModule,
-    MatSelectModule,
+    // MatFormFieldModule,
+    // MatSelectModule,
     MatInputModule
   ],
   declarations: [UserComponent, SignInComponent, SignUpComponent],
