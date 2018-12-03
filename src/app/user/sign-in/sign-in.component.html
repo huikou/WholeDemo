@@ -9,18 +9,18 @@
        <form [formGroup]="loginForm" (ngSubmit)="OnSubmit()">
            <div class="example-container">
           <mat-form-field>
-            <input matInput placeholder="Email" name="email" [formControl]="email" required>
+            <input matInput placeholder="Email" name="email" formControlName="email" required>
             <mat-error *ngFor="let validation of account_validation_messages.email">
                 <mat-error class="error-message" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</mat-error>
               </mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Password" name="password" [formControl]="password" required>
+            <input matInput placeholder="Password" name="password" formControlName="password" required>
 
           </mat-form-field>
-          <mat-form-field>
+          <!-- <mat-form-field>
               <input matCheckBox placeholder="Remember Me" name="RememberMe">
-          </mat-form-field>
+          </mat-form-field> -->
           </div> 
         <!-- <div class="form-group">
             <label for="inputEmail">Email</label> -->
