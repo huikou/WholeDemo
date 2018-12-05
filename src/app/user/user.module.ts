@@ -6,7 +6,7 @@ import { UserComponent } from './user/user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AppRoutingModule } from '..//app-routing.module';
-import { MatFormFieldModule, MatSelectModule, MatInputModule } from '@angular/material';
+//import { MatFormFieldModule, MatSelectModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { MatFormFieldModule, MatSelectModule, MatInputModule } from '@angular/ma
     AppMaterialModule,
     // MatFormFieldModule,
     // MatSelectModule,
-    MatInputModule
+   // MatInputModule
   ],
   declarations: [UserComponent, SignInComponent, SignUpComponent],
   exports: [
