@@ -10,9 +10,13 @@ export class LayoutComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
     navbarOpen = false;
-  
+    navbarPop = false;
     toggleNavbar() {
       this.navbarOpen = !this.navbarOpen;
+    }
+
+    popNavbar() {
+      this.navbarPop = !this.navbarPop;
     }
     
     ngOnInit() {

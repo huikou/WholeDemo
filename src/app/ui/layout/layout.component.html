@@ -1,10 +1,9 @@
 
-<div class="wrapper">
-  <!-- A vertical navbar -->
+<!-- <div class="wrapper">
+
     <nav class="navbar bg-light navbar-right " id="sidebar" [ngClass]="{ 'active': navbarOpen }">
           
-          <!-- Links -->
-    <ul class="navbar-nav" >
+    <div class="navbar-nav" >
             <a class="navbar-brand" href="#"><img src="assets/images/ApexLogoBlue.png" /></a>
     <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" routerLink="dashboard" routerLinkActive="active-link" ><img src="assets/images/Apex/Home.png" /></a>
@@ -15,11 +14,11 @@
     <li class="nav-item" >
         <a class="nav-link" href="#"><img src="assets/images/Apex/Eftps32.png" /></a>
     </li>
-    </ul>
-    <ul class="nav navbar-nav align-self-end">
+</div>
+    <div class="nav navbar-nav align-self-end">
         <li *ngIf="isLoggedIn()"><a href="javascript:void" (click)="logout()"><img src="assets/images/Logout16.png" /></a></li>
         <li *ngIf="!isLoggedIn()"><a href="#"><i class="sign-in-alt"></i> Login</a></li>
-    </ul>
+    </div>
     </nav>
   
 
@@ -27,10 +26,33 @@
         <a href="javascript:void" id="sidebarCollapse"  (click)="toggleNavbar()"> 
                 <img src="assets/images/rew.gif" />
         </a> 
-
+        
       <div class="container-fullwidth" id="dashboard">                            
              <router-outlet></router-outlet>
       </div>
   </div>
-</div>
+</div> -->
+
+<div class="sidebar" [ngClass]="{ 'active': navbarOpen }" >
+    <a class="navBrand"><img src="assets/images/ApexLogoBlue.png" /></a>
+    <a class="nav-link" routerLink="dashboard" routerLinkActive="active-link" ><img src="assets/images/Apex/Home.png" /></a>
+    <a class="nav-link" routerLink="company" routerLinkActive="active-link"><img src="assets/images/Apex/SBO32.png" /></a>
+    <a class="nav-link" href="#"><img src="assets/images/Apex/Eftps32.png" /></a>
+    <div class="login">
+            <span *ngIf="isLoggedIn()"><a href="javascript:void" (click)="logout()"><img src="assets/images/Logout16.png" /></a></span>
+            <span *ngIf="!isLoggedIn()"><a href="#"><i class="sign-in-alt"></i> Login</a></span>
+    </div>
+  </div>
+  
+  <div class="content" [ngClass]="{ 'active': navbarOpen }" >
+      <div>
+       <a href="javascript:void" id="sidebarCollapse"  (click)="toggleNavbar()"> 
+        <img src="assets/images/rew.gif" />
+        </a> 
+        <span class="menu" style="font-size:20px;cursor:pointer;float:right" (click)="toggleNavbar()">&#9776; open</span>
+        </div>
+    <div class="container-fullwidth" id="dashboard">                            
+     <router-outlet></router-outlet>
+    </div>
+  </div>
 
