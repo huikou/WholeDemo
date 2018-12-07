@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RevenueBreakdownChartComponent implements OnInit {
   chartOptions = {
-    responsive: true
+    responsive: true,
+    maintainAspectRatio: false
   };
 
   chartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];

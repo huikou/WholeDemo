@@ -94,6 +94,10 @@
     background-color: #9E9C9C;
     color: white;
   }
+
+  .navBrand{
+    pointer-events: none;
+}
   
   div.content {
     margin-left: 70px;

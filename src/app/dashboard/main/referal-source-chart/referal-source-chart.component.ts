@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReferalSourceChartComponent implements OnInit {
   chartOptions = {
-    responsive: true
+    responsive: true,
+    maintainAspectRatio: false
   };
 
   chartData = [
