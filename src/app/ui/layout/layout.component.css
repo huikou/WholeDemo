@@ -81,13 +81,16 @@
   .sidebar a {
     display: block;
     color: black;
-    padding: 20px 20px;
+    padding: 25px 15px;
     text-decoration: none;
   }
    
   .sidebar a.active-link {
-    background-color: #D6DAD6;
+    background-color: #F6FAF6;
     color: white;
+    border-right-style: solid;
+    border-width: 2px;
+    border-color:blue;
   }
   
   .sidebar a:hover:not(.active) {

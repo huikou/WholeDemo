@@ -3,7 +3,7 @@
 }
 
 .card{
-    height: 35vh; 
+    height: 32vh; 
     overflow-y: auto;
     -moz-box-shadow: 0 0 5px #888;
     -webkit-box-shadow: 0 0 5px#888;
@@ -12,6 +12,12 @@
 
 .card-body{
     height:100%;
+  }
+
+  .viewList{
+      position:absolute;
+      right: 13px;
+      bottom: 13px;
   }
 
 #communication{

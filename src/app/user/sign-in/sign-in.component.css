@@ -6,4 +6,8 @@
   .example-container > * {
     width: 100%;
   }
+
+  .loginButton{
+    margin-top:10px;
+  }
   

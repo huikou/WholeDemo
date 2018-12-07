@@ -62,6 +62,10 @@ export class MainComponent implements OnInit {
       //this.router.navigate(['/layout/dashboard/companySetup']);
   }
 
+  viewCompanyList(){
+    this.router.navigate(['/layout/company']);
+  }
+
   onClick() {
     this.isActive = !this.isActive;
   }
