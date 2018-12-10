@@ -8,6 +8,7 @@
           <h5 class="card-title">Companies <a (click)="showModal()"><span style="color:blue">Total</span></a></h5>
           <h1 class="card-text">78</h1>
           <a class="btn btn-primary" (click)="addCompany()" >Add Company</a>
+          <a class="btn btn-primary" routerLink="../../company/companyMain">add company</a>
           <div (click)="onClick()">
             <i class="fas fa-heart" [ngClass]="{'active': isActive}"></i>
          </div>
@@ -22,6 +23,7 @@
           <button [appDisableIfUnauthorized]=view>Test</button>
           <div class="viewList" >
               <a href="#" class="primary-color" (click)="viewCompanyList()">View list</a>
+              <a routerLink="../../company">lazy-module-name</a>
           </div>
         </div>
       </div>

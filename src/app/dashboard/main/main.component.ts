@@ -63,7 +63,7 @@ export class MainComponent implements OnInit {
   }
 
   viewCompanyList(){
-    this.router.navigate(['/layout/company']);
+    this.router.navigate(['../../company']);
   }
 
   onClick() {
